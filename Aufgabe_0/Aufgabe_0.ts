@@ -7,8 +7,8 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 
 
 document.addEventListener ('DOMContentLoaded', function () {
-    var answer: string = "Ich wünsche dir einen schönen Tag!";
+    var answer: string = "Ich wünsche dir einen schönen Tag";
     var yourName: string = prompt ("Möchtest du mir deinen Namen verraten?");
-    document.body.innerHTML = answer + yourName;
+    document.body.innerHTML = answer +""+ yourName;
 });
 
