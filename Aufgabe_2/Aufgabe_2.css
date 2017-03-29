@@ -3,3 +3,11 @@
 	width: 80px;
 	border: 1px solid black;
 }
+
+.white {
+	background: white;
+}
+
+.black {
+	background: black;
+}
