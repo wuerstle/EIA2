@@ -1,13 +1,38 @@
+/*
+Aufgabe: Nr. 2
+Name: Lisa Würstle
+Matrikel: 254072
+Datum: 02.04.2017
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.*/
+
+
+body {
+	width: 900px;
+	display: block;
+	margin: 0 auto;
+	margin-top: 3%;
+}
+
 .board {
-	height: 80px;
-	width: 80px;
-	border: 1px solid black;
+	height: 100px;
+	width: 100px;
+	border: 2px solid black;
+	float: left;
 }
 
 .white {
 	background: white;
+	color: red;
+	font-size: 0.7em;
+	text-align: center;
+	font-weight: 700;
 }
 
 .black {
 	background: black;
+	color: red;
+	font-size: 0.7em;
+	text-align: center;
 }
+
+
