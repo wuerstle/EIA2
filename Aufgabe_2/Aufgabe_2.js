@@ -2,7 +2,6 @@
 //Name: Lisa Würstle
 //Matrikel: 254072
 //Datum: 02.04.2017
-//Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 //    let table: HTMLTableElement = document.createElement("table");
 //    let row: HTMLTableRowElement = document.createElement("tr");
 //    let column: HTMLTableCellElement = document.createElement("td");
