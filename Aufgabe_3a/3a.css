@@ -1,0 +1,30 @@
+body {
+	width: 900px;
+	display: block;
+	margin: 0 auto;
+	margin-top: 3%;
+}
+
+.board {
+	height: 100px;
+	width: 100px;
+	border: 2px solid black;
+	float: left;
+}
+
+.white {
+	background: white;
+	color: red;
+	font-size: 0.7em;
+	text-align: center;
+	font-weight: 700;
+}
+
+.black {
+	background: black;
+	color: red;
+	font-size: 0.7em;
+	text-align: center;
+}
+
+
