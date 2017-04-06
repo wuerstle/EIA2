@@ -2,6 +2,7 @@
 //Name: Lisa Würstle
 //Matrikel: 254072
 //Datum: 02.04.2017
+//In Zusammenarbeit mit Bersu Inanir und Elyssia Dürr
 //    let table: HTMLTableElement = document.createElement("table");
 //    let row: HTMLTableRowElement = document.createElement("tr");
 //    let column: HTMLTableCellElement = document.createElement("td");
