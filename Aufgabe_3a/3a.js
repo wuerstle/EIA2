@@ -16,5 +16,21 @@ window.onload = function () {
         rice *= 2;
         document.body.appendChild(element);
     }
+    var divs = document.getElementsByTagName("div");
+    for (var i = 0; i < 8; i++) {
+        divs[i].addEventListener("click", select);
+        console.log(Math.pow(2, i).toString(16));
+    }
+    document.addEventListener("click", moveDiv);
 };
+var selected;
+function select(event) {
+    selected = event.target;
+}
+function moveDiv(event) {
+    var style = selected.style;
+    style.position = "absolute";
+    style.left = event.clientX.toString() + "px";
+    style.top = event.clientY.toString() + "px";
+}
 //# sourceMappingURL=3a.js.map

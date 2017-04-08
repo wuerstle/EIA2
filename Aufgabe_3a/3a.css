@@ -27,4 +27,8 @@ body {
 	text-align: center;
 }
 
+.selected {
+	border: 1px solid red;
+}
+
 
