@@ -1,3 +1,4 @@
+namespace Nr3a_Schachbrett {
 window.onload = function(): void {
     let rice: number = 1;
     let row: number = 0;
@@ -38,3 +39,4 @@ window.onload = function(): void {
         style.left = event.clientX.toString() + "px";
         style.top = event.clientY.toString() + "px";
     }
+}
