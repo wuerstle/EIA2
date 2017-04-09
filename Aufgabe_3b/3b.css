@@ -1,0 +1,35 @@
+div {
+	width: 150px;
+	height: 200px;
+	text-align: center;
+	font-family: sans-serif;
+	padding-top: 1em;
+}
+
+#deckCards {
+	float: left;
+	position: absolute;
+	top: 3em;
+	left: 6em;
+	background-color: dimgrey;
+	border: 1px solid black;
+	color: white;
+}
+
+#discard {
+	float: right;
+	position: absolute;
+	top: 3em;
+	right: 6em;
+	background-color: gainsboro;
+	border: 1px solid black;
+	/*display: none;*/
+}
+
+#handCards {
+	float: left;
+	position: absolute;
+	top: 20em;
+	left: 6em;
+	border: 1px solid black;
+}
