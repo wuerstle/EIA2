@@ -19,22 +19,29 @@ var Nr3a_Schachbrett;
             document.body.appendChild(element);
         }
         var divs = document.getElementsByTagName("div");
-        for (var i = 0; i < 8; i++) {
+        for (var i = 0; i < 9; i++) {
             divs[i].addEventListener("click", handleEvent);
             console.log(Math.pow(2, i).toString(16));
         }
-        document.addEventListener("click", moveDiv);
+        var selected;
+        function handleEvent(event) {
+            selected = event.target;
+            selected.classList.toggle("selected");
+            if (selected.length > 1) {
+                document.getElementById("field").style.display = "inline";
+            }
+            else {
+                document.getElementById("field").style.display = "none";
+            }
+            console.log(selected.textContent);
+        }
+        function moveDiv(event) {
+            var style = selected.style;
+            style.position = "absolute";
+            style.left = event.clientX.toString() + "px";
+            style.top = event.clientY.toString() + "px";
+        }
     };
-    var selected;
-    function handleEvent(event) {
-        selected = event.target;
-        console.log(selected.textContent);
-    }
-    function moveDiv(event) {
-        var style = selected.style;
-        style.position = "absolute";
-        style.left = event.clientX.toString() + "px";
-        style.top = event.clientY.toString() + "px";
-    }
 })(Nr3a_Schachbrett || (Nr3a_Schachbrett = {}));
+;
 //# sourceMappingURL=3a.js.map

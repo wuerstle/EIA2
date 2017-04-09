@@ -19,18 +19,22 @@ window.onload = function(): void {
     }
 
     let divs: NodeListOf<HTMLElement> = document.getElementsByTagName("div");
-    for (let i: number = 0; i < 8; i++) {
+    for (let i: number = 0; i < 9; i++) {
         divs[i].addEventListener("click", handleEvent);
         console.log(Math.pow(2, i).toString(16));
     }
 
-    document.addEventListener("click", moveDiv);
-    
-};
 
-    let selected: HTMLDivElement;
+    let selected: any;
     function handleEvent(event: MouseEvent): void {
         selected = <HTMLDivElement>event.target;
+        selected.classList.toggle("selected");
+        if (selected.length > 1) {
+            document.getElementById("field").style.display = "inline";
+            }
+        else {
+            document.getElementById("field").style.display = "none";
+            }
         console.log(selected.textContent);
     }
 
@@ -40,4 +44,5 @@ window.onload = function(): void {
         style.left = event.clientX.toString() + "px";
         style.top = event.clientY.toString() + "px";
     }
-}
+    };
+};
