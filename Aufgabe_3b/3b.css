@@ -13,6 +13,7 @@ div {
 	left: 6em;
 	background-color: dimgrey;
 	border: 1px solid black;
+	border-radius: 10px;
 	color: white;
 }
 
@@ -23,6 +24,7 @@ div {
 	right: 6em;
 	background-color: gainsboro;
 	border: 1px solid black;
+	border-radius: 10px;
 	/*display: none;*/
 }
 
@@ -32,4 +34,5 @@ div {
 	top: 20em;
 	left: 6em;
 	border: 1px solid black;
+	border-radius: 10px;
 }
