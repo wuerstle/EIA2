@@ -1,3 +1,9 @@
+//Aufgabe: Nr. 3a
+//Name: Lisa Würstle
+//Matrikel: 254072
+//Datum: 09.04.2017
+//Dieser Code enstand in Zusammenarbeit mit Bersu Inanir und dem Code aus dem Tutorium.
+//Leider tat ich mir bei dieser Aufgabe sehr schwer. Dadurch funktioniert der Code auch nur teilweise.
 var Nr3a_Schachbrett;
 (function (Nr3a_Schachbrett) {
     window.onload = function () {
