@@ -37,7 +37,7 @@ var Nr3a_Schachbrett;
                 document.getElementById("field").style.display = "none";
             }
             else {
-                document.getElementById("field").style.display = "block";
+                document.getElementById("field").style.display = "inline";
             }
             console.log(selected.textContent);
         }
