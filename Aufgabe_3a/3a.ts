@@ -36,11 +36,11 @@ window.onload = function(): void {
     function handleEvent(event: MouseEvent): void {
         selected = <HTMLDivElement>event.target;
         selected.classList.toggle("selected");
-        if (selected.length > 1) {
-            document.getElementById("field").style.display = "inline";
+        if (selected.length < 1) {
+            document.getElementById("field").style.display = "none";
             }
         else {
-            document.getElementById("field").style.display = "none";
+            document.getElementById("field").style.display = "block";
             }
         console.log(selected.textContent);
     }

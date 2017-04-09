@@ -33,11 +33,11 @@ var Nr3a_Schachbrett;
         function handleEvent(event) {
             selected = event.target;
             selected.classList.toggle("selected");
-            if (selected.length > 1) {
-                document.getElementById("field").style.display = "inline";
+            if (selected.length < 1) {
+                document.getElementById("field").style.display = "none";
             }
             else {
-                document.getElementById("field").style.display = "none";
+                document.getElementById("field").style.display = "block";
             }
             console.log(selected.textContent);
         }

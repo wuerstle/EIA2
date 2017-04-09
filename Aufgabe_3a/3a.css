@@ -3,12 +3,13 @@ body {
 	display: block;
 	margin: 0 auto;
 	margin-top: 3%;
+	font-family: sans-serif;
 }
 
 .board {
 	height: 100px;
 	width: 100px;
-	border: 2px solid black;
+	border: 1px solid black;
 	float: left;
 }
 
@@ -28,7 +29,15 @@ body {
 }
 
 .selected {
-	border: 1px solid red;
+	background-color: gainsboro;
+}
+
+#field {
+	border: 2px solid lightblue;
+	display: none;
+	position: absolute;
+	height: 50px;
+	width: 150px;
 }
 
 
