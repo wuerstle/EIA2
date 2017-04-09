@@ -4,6 +4,7 @@ div {
 	text-align: center;
 	font-family: sans-serif;
 	padding-top: 1em;
+	border: 1px solid black;
 }
 
 #deckCards {
