@@ -36,3 +36,11 @@ div {
 	border: 1px solid black;
 	border-radius: 10px;
 }
+
+
+.hand {
+	border: 8px black solid;
+	font-weight: 700;
+	display: inline;
+	float: left;
+	margin: 1em 1em;
