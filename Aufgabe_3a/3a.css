@@ -1,35 +1,29 @@
-body {
-	width: 900px;
-	display: block;
-	margin: 0 auto;
-	margin-top: 3%;
-	font-family: sans-serif;
-}
 
 .board {
-	height: 100px;
-	width: 100px;
-	border: 1px solid black;
-	float: left;
-}
+    width:80px;
+    height:80px;
+    border:1px solid black;
+    float:left;
+    text-align:center;
 
-.white {
-	background: white;
-	color: red;
-	font-size: 0.7em;
-	text-align: center;
-	font-weight: 700;
 }
 
 .black {
-	background: black;
-	color: red;
-	font-size: 0.7em;
-	text-align: center;
+    background-color: black;
+    color:white;
+
 }
 
+.white {
+    background-color:white;
+}
+
+body > div:nth-child(8n+1) {
+    clear: left;
+;}
+
 .selected {
-	background-color: gainsboro;
+    border: 1px solid red;
 }
 
 #move {
@@ -37,5 +31,4 @@ body {
     display: inline-block;
 
 }
-
 
