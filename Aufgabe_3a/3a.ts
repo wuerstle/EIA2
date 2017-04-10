@@ -39,12 +39,6 @@ namespace Nr3a_Schachbrett {
         function selectedDiv(event: MouseEvent): void {
             selected = <HTMLDivElement>event.target;
             selected.classList.toggle("selected");
-            if (selected.length < 1) {
-                document.getElementById("field").style.display = "none";
-            }
-            else {
-                document.getElementById("field").style.display = "inline";
-            }
             updateSum();
         }
 
