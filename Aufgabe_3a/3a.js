@@ -27,27 +27,34 @@ var Nr3a_Schachbrett;
         }
         div = document.createElement("div");
         div.id = "move";
-        document.addEventListener("mousemove", updateBox);
+        document.addEventListener("mousemove", moveDiv);
         document.body.appendChild(div);
-    };
-    var clickedDiv;
-    function selectDiv(event) {
-        clickedDiv = event.target;
-        clickedDiv.classList.toggle("selected");
-        updateSum();
-        console.log(sum);
-    }
-    function updateSum() {
-        var selectedDivs = document.getElementsByClassName("selected");
-        sum = 0;
-        for (var i = 0; i < selectedDivs.length; i++) {
-            sum += parseInt(selectedDivs[i].textContent);
+        var divs = document.getElementsByTagName("div");
+        var selected;
+        function selectedDiv(event) {
+            selected = event.target;
+            selected.classList.toggle("selected");
+            if (selected.length < 1) {
+                document.getElementById("field").style.display = "none";
+            }
+            else {
+                document.getElementById("field").style.display = "inline";
+            }
+            updateSum();
         }
-    }
-    function updateBox(event) {
-        div.style.top = event.clientY + 10 + "px";
-        div.style.left = event.clientX + 10 + "px";
-        div.textContent = "Summe zur Basis 10 = " + sum + " Summe zur Basis 16 = " + sum.toString(16);
-    }
+        function updateSum() {
+            var selectedDivs = document.getElementsByClassName("selected");
+            sum = 0;
+            for (var i = 0; i < selectedDivs.length; i++) {
+                sum += parseInt(selectedDivs[i].textContent);
+            }
+        }
+        function moveDiv(event) {
+            div.style.top = event.clientY + 10 + "px";
+            div.style.left = event.clientX + 10 + "px";
+            div.textContent = "Summe zur Basis 10 = " + sum + " Summe zur Basis 16 = " + sum.toString(16);
+        }
+    };
 })(Nr3a_Schachbrett || (Nr3a_Schachbrett = {}));
+;
 //# sourceMappingURL=3a.js.map

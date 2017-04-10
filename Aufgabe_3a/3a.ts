@@ -26,33 +26,40 @@ namespace Nr3a_Schachbrett {
             element.innerText = "" + rice;
             rice *= 2;
             document.body.appendChild(element);
+
         }
 
         div = document.createElement("div");
         div.id = "move";
-        document.addEventListener("mousemove", updateBox);
+        document.addEventListener("mousemove", moveDiv);
         document.body.appendChild(div);
-    };
-    
-    let clickedDiv: any;
-    function selectDiv(event: MouseEvent): void {
-        clickedDiv = <HTMLDivElement>event.target;
-        clickedDiv.classList.toggle("selected");
-        updateSum();
-        console.log(sum);
-    }
 
-    function updateSum(): void {
-        let selectedDivs: NodeListOf<Element> = document.getElementsByClassName("selected");
-        sum = 0;
-        for (let i: number = 0; i < selectedDivs.length; i++) {
-            sum += parseInt(selectedDivs[i].textContent);
+        let divs: NodeListOf<HTMLElement> = document.getElementsByTagName("div");
+        let selected: any;
+        function selectedDiv(event: MouseEvent): void {
+            selected = <HTMLDivElement>event.target;
+            selected.classList.toggle("selected");
+            if (selected.length < 1) {
+                document.getElementById("field").style.display = "none";
+            }
+            else {
+                document.getElementById("field").style.display = "inline";
+            }
+            updateSum();
         }
-    }
 
-    function updateBox(event: MouseEvent): void {
-        div.style.top = event.clientY + 10 + "px";
-        div.style.left = event.clientX + 10 + "px";
-        div.textContent = "Summe zur Basis 10 = " + sum + " Summe zur Basis 16 = " + sum.toString(16);
-    }
-}
+        function updateSum(): void {
+            let selectedDivs: NodeListOf<Element> = document.getElementsByClassName("selected");
+            sum = 0;
+            for (let i: number = 0; i < selectedDivs.length; i++) {
+                sum += parseInt(selectedDivs[i].textContent);
+            }
+        }
+
+        function moveDiv(event: MouseEvent): void {
+           div.style.top = event.clientY + 10 + "px";
+           div.style.left = event.clientX + 10 + "px";
+           div.textContent = "Summe zur Basis 10 = " + sum + " Summe zur Basis 16 = " + sum.toString(16);
+        }
+    };
+};
