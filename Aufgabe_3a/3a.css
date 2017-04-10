@@ -35,6 +35,7 @@ body {
 #move {
     position: absolute;
     display: inline-block;
+    color: red;
 
 }
 
