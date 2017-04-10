@@ -1,29 +1,35 @@
-
-.board {
-    width:80px;
-    height:80px;
-    border:1px solid black;
-    float:left;
-    text-align:center;
-
+body {
+	width: 900px;
+	display: block;
+	margin: 0 auto;
+	margin-top: 3%;
+	font-family: sans-serif;
 }
 
-.black {
-    background-color: black;
-    color:white;
-
+.board {
+	height: 100px;
+	width: 100px;
+	border: 1px solid black;
+	float: left;
 }
 
 .white {
-    background-color:white;
+	background: white;
+	color: red;
+	font-size: 0.7em;
+	text-align: center;
+	font-weight: 700;
 }
 
-body > div:nth-child(8n+1) {
-    clear: left;
-;}
+.black {
+	background: black;
+	color: red;
+	font-size: 0.7em;
+	text-align: center;
+}
 
 .selected {
-    border: 1px solid red;
+	background-color: gainsboro;
 }
 
 #move {
@@ -31,4 +37,5 @@ body > div:nth-child(8n+1) {
     display: inline-block;
 
 }
+
 
