@@ -34,6 +34,7 @@ var Nr3a_Schachbrett;
         var clickedDiv = event.target;
         clickedDiv.classList.toggle("selected");
         updateSum();
+        console.log(sum);
     }
     function updateSum() {
         var selectedDivs = document.getElementsByClassName("selected");

@@ -38,6 +38,7 @@ namespace Nr3a_Schachbrett {
         let clickedDiv: HTMLDivElement = <HTMLDivElement>event.target;
         clickedDiv.classList.toggle("selected");
         updateSum();
+        console.log(sum);
     }
 
     function updateSum(): void {
