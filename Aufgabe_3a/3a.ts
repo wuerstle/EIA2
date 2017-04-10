@@ -8,6 +8,8 @@ namespace Nr3a_Schachbrett {
     window.onload = function(): void {
         let rice: number = 1;
         let row: number = 0;
+        let sum: number = 0;
+        let div: HTMLDivElement;
         for (let i: number = 0; i < 64; i++) { //For-Schleife
             let element: HTMLElement = document.createElement("div"); //Create Divs
             if (((i + row) % 2) == 0) { //Modulo

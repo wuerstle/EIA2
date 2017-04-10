@@ -8,6 +8,8 @@ var Nr3a_Schachbrett;
     window.onload = function () {
         var rice = 1;
         var row = 0;
+        var sum = 0;
+        var div;
         for (var i = 0; i < 64; i++) {
             var element = document.createElement("div"); //Create Divs
             if (((i + row) % 2) == 0) {
