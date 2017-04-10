@@ -3,52 +3,54 @@
 //Matrikel: 254072
 //Datum: 10.04.2017
 //Verbesserter Code
-var Nr3a_Schachbrett;
-(function (Nr3a_Schachbrett) {
-    var sum = 0;
-    var div;
-    window.onload = function () {
-        var rice = 1;
-        var row = 0;
-        for (var i = 0; i < 64; i++) {
-            var element = document.createElement("div"); //Create Divs
-            if (((i + row) % 2) == 0) {
-                element.className = "board white";
-            }
-            else {
-                element.className = "board black";
-            }
-            if (((i + 1) % 8) == 0) {
-                row++;
-            }
-            element.innerText = "" + rice;
-            rice *= 2;
-            document.body.appendChild(element);
+var sum = 0;
+var div;
+document.addEventListener("DOMContentLoaded", function () {
+    var rice = 1;
+    var line = 0;
+    for (var n = 0; n < 64; n++) {
+        var element = document.createElement("div");
+        if (n < 8) {
+            element.addEventListener("click", selectDiv);
         }
-        div = document.createElement("div");
-        div.id = "move";
-        document.addEventListener("mousemove", moveDiv);
-        document.body.appendChild(div);
-        var divs = document.getElementsByTagName("div");
-        var selected;
-        function selectedDiv(event) {
-            selected = event.target;
-            selected.classList.toggle("selected");
-            updateSum();
+        if (((n + line) % 2) == 0) {
+            element.className = "board black";
         }
-        function updateSum() {
-            var selectedDivs = document.getElementsByClassName("selected");
-            sum = 0;
-            for (var i = 0; i < selectedDivs.length; i++) {
-                sum += parseInt(selectedDivs[i].textContent);
-            }
+        else {
+            element.className = "board white";
         }
-        function moveDiv(event) {
-            div.style.top = event.clientY + 10 + "px";
-            div.style.left = event.clientX + 10 + "px";
-            div.textContent = "Summe zur Basis 10 = " + sum + " Summe zur Basis 16 = " + sum.toString(16);
+        if (((n + 1) % 8) == 0) {
+            line++;
         }
-    };
-})(Nr3a_Schachbrett || (Nr3a_Schachbrett = {}));
-;
+        element.innerText = "" + rice;
+        rice *= 2;
+        document.body.appendChild(element);
+    }
+    div = document.createElement("div");
+    div.id = "move";
+    document.addEventListener("mousemove", updateBox);
+    document.body.appendChild(div);
+});
+function selectDiv(event) {
+    var clickedDiv = event.target;
+    if (clickedDiv.classList.toggle("selected")) {
+        sum += parseInt(clickedDiv.textContent);
+    }
+    else {
+        sum -= parseInt(clickedDiv.textContent);
+    }
+    updateSum();
+}
+function updateSum() {
+    var selectedDivs = document.getElementsByClassName("selected");
+    sum = 0;
+    for (var i = 0; i < selectedDivs.length; i++) {
+        sum += parseInt(selectedDivs[i].textContent);
+    }
+}
+function updateBox(event) {
+    div.style.top = event.clientY + 10 + "px";
+    div.style.left = event.clientX + 10 + "px";
+    div.textContent = "Summe zur Basis 10 = " + sum + " Summe zur Basis 16 = " + sum.toString(16);
+}
 //# sourceMappingURL=3a.js.map

@@ -4,56 +4,67 @@
 //Datum: 10.04.2017
 //Verbesserter Code
 
-namespace Nr3a_Schachbrett {
-    let sum: number = 0;
-    let div: HTMLDivElement;
+let sum: number = 0;
+let div: HTMLDivElement;
 
-    window.onload = function(): void {
+document.addEventListener("DOMContentLoaded", function (): void {
 
-        let rice: number = 1;
-        let row: number = 0;
-        for (let i: number = 0; i < 64; i++) { //For-Schleife
-            let element: HTMLElement = document.createElement("div"); //Create Divs
-            if (((i + row) % 2) == 0) { //Modulo
-                element.className = "board white";
-            } else {
-                element.className = "board black";
-            }
-            if (((i + 1) % 8) == 0) { //Modulo
-                row++;
-            }
+    let rice: number = 1;
+    let line: number = 0;
 
-            element.innerText = "" + rice;
-            rice *= 2;
-            document.body.appendChild(element);
+    for ( let n: number = 0; n < 64; n++) {
+        let element: HTMLElement = document.createElement("div");
 
+        if (n < 8) {
+            element.addEventListener("click", selectDiv);
         }
 
-        div = document.createElement("div");
-        div.id = "move";
-        document.addEventListener("mousemove", moveDiv);
-        document.body.appendChild(div);
-
-        let divs: NodeListOf<HTMLElement> = document.getElementsByTagName("div");
-        let selected: any;
-        function selectedDiv(event: MouseEvent): void {
-            selected = <HTMLDivElement>event.target;
-            selected.classList.toggle("selected");
-            updateSum();
+        if (((n + line) % 2) == 0) {
+            element.className = "board black";
         }
 
-        function updateSum(): void {
-            let selectedDivs: NodeListOf<Element> = document.getElementsByClassName("selected");
-            sum = 0;
-            for (let i: number = 0; i < selectedDivs.length; i++) {
-                sum += parseInt(selectedDivs[i].textContent);
-            }
+        else {
+            element.className = "board white";
         }
 
-        function moveDiv(event: MouseEvent): void {
-           div.style.top = event.clientY + 10 + "px";
-           div.style.left = event.clientX + 10 + "px";
-           div.textContent = "Summe zur Basis 10 = " + sum + " Summe zur Basis 16 = " + sum.toString(16);
+
+        if (((n + 1) % 8) == 0) {
+            line++;
         }
-    };
-};
+
+        element.innerText = "" + rice;
+        rice *= 2;
+        document.body.appendChild(element);
+    }
+
+    div = document.createElement("div");
+    div.id = "move";
+    document.addEventListener("mousemove", updateBox);
+    document.body.appendChild(div);
+});
+
+function selectDiv(event: MouseEvent): void {
+    let clickedDiv: HTMLDivElement = <HTMLDivElement>event.target;
+    if (clickedDiv.classList.toggle("selected")) {
+        sum += parseInt(clickedDiv.textContent);
+    } else {
+        sum -= parseInt(clickedDiv.textContent);
+    }
+
+    updateSum();
+}
+
+function updateSum(): void {
+    let selectedDivs: NodeListOf<Element> = document.getElementsByClassName("selected");
+    sum = 0;
+    for (let i: number = 0; i < selectedDivs.length; i++) {
+        sum += parseInt(selectedDivs[i].textContent);
+    }
+}
+
+function updateBox(event: MouseEvent): void {
+    div.style.top = event.clientY + 10 + "px";
+    div.style.left = event.clientX + 10  + "px";
+    div.textContent = "Summe zur Basis 10 = " + sum + " Summe zur Basis 16 = " + sum.toString(16);
+}
+
