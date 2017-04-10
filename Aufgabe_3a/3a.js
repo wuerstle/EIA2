@@ -30,8 +30,9 @@ var Nr3a_Schachbrett;
         document.addEventListener("mousemove", updateBox);
         document.body.appendChild(div);
     };
+    var clickedDiv;
     function selectDiv(event) {
-        var clickedDiv = event.target;
+        clickedDiv = event.target;
         clickedDiv.classList.toggle("selected");
         updateSum();
         console.log(sum);

@@ -33,9 +33,10 @@ namespace Nr3a_Schachbrett {
         document.addEventListener("mousemove", updateBox);
         document.body.appendChild(div);
     };
-
+    
+    let clickedDiv: any;
     function selectDiv(event: MouseEvent): void {
-        let clickedDiv: HTMLDivElement = <HTMLDivElement>event.target;
+        clickedDiv = <HTMLDivElement>event.target;
         clickedDiv.classList.toggle("selected");
         updateSum();
         console.log(sum);
