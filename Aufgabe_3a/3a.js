@@ -1,11 +1,12 @@
 //Aufgabe: Nr. 3a
 //Name: Lisa Würstle
 //Matrikel: 254072
-//Datum: 09.04.2017
-//Dieser Code enstand in Zusammenarbeit mit Bersu Inanir und dem Code aus dem Tutorium.
-//Leider tat ich mir bei dieser Aufgabe sehr schwer. Dadurch funktioniert der Code auch nur teilweise.
+//Datum: 10.04.2017
+//Verbesserter Code
 var Nr3a_Schachbrett;
 (function (Nr3a_Schachbrett) {
+    var sum = 0;
+    var div;
     window.onload = function () {
         var rice = 1;
         var row = 0;
@@ -23,31 +24,25 @@ var Nr3a_Schachbrett;
             element.innerText = "" + rice;
             rice *= 2;
             document.body.appendChild(element);
-        }
-        var divs = document.getElementsByTagName("div");
-        for (var i = 0; i < 9; i++) {
-            divs[i].addEventListener("click", handleEvent);
-            console.log(Math.pow(2, i).toString(16));
-        }
-        var selected;
-        function handleEvent(event) {
-            selected = event.target;
-            selected.classList.toggle("selected");
-            if (selected.length < 1) {
-                document.getElementById("field").style.display = "none";
-            }
-            else {
-                document.getElementById("field").style.display = "inline";
-            }
-            console.log(selected.textContent);
-        }
-        function moveDiv(event) {
-            var style = selected.style;
-            style.position = "absolute";
-            style.left = event.clientX.toString() + "px";
-            style.top = event.clientY.toString() + "px";
+            div = document.createElement("div");
+            div.id = "move";
+            document.addEventListener("mousemove", updateBox);
+            document.body.appendChild(div);
         }
     };
+    function selectDiv(event) {
+        var clickedDiv = event.target;
+        if (clickedDiv.classList.toggle("selected")) {
+            sum += parseInt(clickedDiv.textContent);
+        }
+        else {
+            sum -= parseInt(clickedDiv.textContent);
+        }
+    }
+    function updateBox(event) {
+        div.style.top = event.clientY + 10 + "px";
+        div.style.left = event.clientX + 10 + "px";
+        div.textContent = "Summe zur Basis 10 = " + sum + " Summe zur Basis 16 = " + sum.toString(16);
+    }
 })(Nr3a_Schachbrett || (Nr3a_Schachbrett = {}));
-;
 //# sourceMappingURL=3a.js.map
