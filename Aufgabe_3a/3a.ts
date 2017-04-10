@@ -6,6 +6,9 @@
 
 namespace Nr3a_Schachbrett {
 
+    let sum: number = 0;
+    let div: HTMLDivElement;
+
     window.onload = function(): void {
         let rice: number = 1;
         let row: number = 0;
@@ -23,8 +26,7 @@ namespace Nr3a_Schachbrett {
             element.innerText = "" + rice;
             rice *= 2;
             document.body.appendChild(element);
-            
-            let div: HTMLDivElement;
+
             div = document.createElement("div");
             div.id = "move";
             document.addEventListener("mousemove", updateBox);
@@ -34,11 +36,14 @@ namespace Nr3a_Schachbrett {
 
     function selectDiv(event: MouseEvent): void {
         let clickedDiv: HTMLDivElement = <HTMLDivElement>event.target;
-        clickedDiv.classList.toggle("selected");
-        updateSum();
+        if (clickedDiv.classList.toggle("selected")) {
+            sum += parseInt(clickedDiv.textContent);
+        } else {
+            sum -= parseInt(clickedDiv.textContent);
+        }
+        //updateSum();
     }
 
-    let sum: number = 0;
     function updateSum(): void {
         let selectedDivs: NodeListOf<Element> = document.getElementsByClassName("selected");
         sum = 0;
