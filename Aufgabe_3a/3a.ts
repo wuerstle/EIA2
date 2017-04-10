@@ -5,11 +5,13 @@
 //Verbesserter Code
 
 namespace Nr3a_Schachbrett {
+    
+let sum: number = 0;
+let div: HTMLDivElement;
+    
     window.onload = function(): void {
         let rice: number = 1;
         let row: number = 0;
-        let sum: number = 0;
-        let div: HTMLDivElement;
         for (let i: number = 0; i < 64; i++) { //For-Schleife
             let element: HTMLElement = document.createElement("div"); //Create Divs
             if (((i + row) % 2) == 0) { //Modulo
@@ -30,6 +32,7 @@ namespace Nr3a_Schachbrett {
             document.addEventListener("mousemove", updateBox);
             document.body.appendChild(div);
         }
+};
 
         function selectDiv(event: MouseEvent): void {
             let clickedDiv: HTMLDivElement = <HTMLDivElement>event.target;
@@ -50,5 +53,4 @@ namespace Nr3a_Schachbrett {
             div.style.left = event.clientX + 10 + "px";
             div.textContent = "Summe zur Basis 10 = " + sum + " Summe zur Basis 16 = " + sum.toString(16);
         }
-    };
-};
+}
