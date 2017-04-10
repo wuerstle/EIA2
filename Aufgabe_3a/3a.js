@@ -32,12 +32,7 @@ var Nr3a_Schachbrett;
     };
     function selectDiv(event) {
         var clickedDiv = event.target;
-        if (clickedDiv.classList.toggle("selected")) {
-            sum += parseInt(clickedDiv.textContent);
-        }
-        else {
-            sum -= parseInt(clickedDiv.textContent);
-        }
+        clickedDiv.classList.toggle("selected");
         updateSum();
     }
     function updateSum() {
