@@ -6,8 +6,6 @@
 
 namespace Nr3a_Schachbrett {
 
-    let div: HTMLDivElement;
-
     window.onload = function(): void {
         let rice: number = 1;
         let row: number = 0;
@@ -25,7 +23,8 @@ namespace Nr3a_Schachbrett {
             element.innerText = "" + rice;
             rice *= 2;
             document.body.appendChild(element);
-
+            
+            let div: HTMLDivElement;
             div = document.createElement("div");
             div.id = "move";
             document.addEventListener("mousemove", updateBox);

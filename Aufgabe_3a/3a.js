@@ -5,7 +5,6 @@
 //Verbesserter Code
 var Nr3a_Schachbrett;
 (function (Nr3a_Schachbrett) {
-    var div;
     window.onload = function () {
         var rice = 1;
         var row = 0;
@@ -23,10 +22,11 @@ var Nr3a_Schachbrett;
             element.innerText = "" + rice;
             rice *= 2;
             document.body.appendChild(element);
-            div = document.createElement("div");
-            div.id = "move";
+            var div_1 = void 0;
+            div_1 = document.createElement("div");
+            div_1.id = "move";
             document.addEventListener("mousemove", updateBox);
-            document.body.appendChild(div);
+            document.body.appendChild(div_1);
         }
     };
     function selectDiv(event) {
