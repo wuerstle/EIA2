@@ -34,7 +34,6 @@ body {
 
 #field {
 	border: 2px solid darkred;
-	display: none;
 	position: absolute;
 	height: 50px;
 	width: 150px;
