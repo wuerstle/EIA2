@@ -36,12 +36,17 @@ namespace Nr3a_Schachbrett {
 
     function selectDiv(event: MouseEvent): void {
         let clickedDiv: HTMLDivElement = <HTMLDivElement>event.target;
-        if (clickedDiv.classList.toggle("selected")) {
-            sum += parseInt(clickedDiv.textContent);
-        } else {
-            sum -= parseInt(clickedDiv.textContent);
-        }
+        clickedDiv.classList.toggle("selected");
+        updateSum();
     }
+    
+    function updateSum(): void {
+    let selectedDivs: NodeListOf<Element> = document.getElementsByClassName("selected");
+    sum = 0;
+    for (let i: number = 0; i < selectedDivs.length; i++) {
+        sum += parseInt(selectedDivs[i].textContent);
+    }
+}
 
     function updateBox(event: MouseEvent): void {
         div.style.top = event.clientY + 10 + "px";
