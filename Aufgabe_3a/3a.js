@@ -5,7 +5,6 @@
 //Verbesserter Code
 var Nr3a_Schachbrett;
 (function (Nr3a_Schachbrett) {
-    var sum = 0;
     var div;
     window.onload = function () {
         var rice = 1;
@@ -35,6 +34,7 @@ var Nr3a_Schachbrett;
         clickedDiv.classList.toggle("selected");
         updateSum();
     }
+    var sum = 0;
     function updateSum() {
         var selectedDivs = document.getElementsByClassName("selected");
         sum = 0;

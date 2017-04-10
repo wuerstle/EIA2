@@ -6,7 +6,6 @@
 
 namespace Nr3a_Schachbrett {
 
-    let sum: number = 0;
     let div: HTMLDivElement;
 
     window.onload = function(): void {
@@ -40,6 +39,7 @@ namespace Nr3a_Schachbrett {
         updateSum();
     }
 
+    let sum: number = 0;
     function updateSum(): void {
         let selectedDivs: NodeListOf<Element> = document.getElementsByClassName("selected");
         sum = 0;
