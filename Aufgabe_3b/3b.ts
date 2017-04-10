@@ -1,9 +1,8 @@
 //Aufgabe: Nr. 3b
 //Name: Lisa Würstle
 //Matrikel: 254072
-//Datum: 09.04.2017
-//Dieser Code enstand in Zusammenarbeit mit Bersu Inanir.
-//Leider tat ich mir bei dieser Aufgabe sehr schwer. Daher ist der Code auch nicht vollständig. 
+//Datum: 10.04.2017
+//Verbesserter Code
 
 namespace Nr3b_MauMau {
     let stapel: string [] = ["Karo 7", "Karo 8", "Karo 9", "Karo 10", "Karo Bube", "Karo Dame", "Karo König", "Karo Ass", "Herz 7", "Herz 8", "Herz 9", "Herz 10", "Herz Bube", "Herz Dame", "Herz König", "Herz Ass", "Pik 7", "Pik 8", "Pik 9", "Pik 10", "Pik Bube", "Pik Dame", "Pik König", "Pik Ass", "Kreuz 7", "Kreuz 8", "Kreuz 9", "Kreuz 10", "Kreuz Bube", "Kreuz Dame", "Kreuz König", "Kreuz Ass"]; 
