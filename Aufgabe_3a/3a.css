@@ -32,11 +32,10 @@ body {
 	background-color: gainsboro;
 }
 
-#field {
-	border: 2px solid darkred;
-	position: absolute;
-	height: 50px;
-	width: 150px;
+#move {
+    position: absolute;
+    display: inline-block;
+
 }
 
 
