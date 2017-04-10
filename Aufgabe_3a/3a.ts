@@ -5,11 +5,11 @@
 //Verbesserter Code
 
 namespace Nr3a_Schachbrett {
-
     let sum: number = 0;
     let div: HTMLDivElement;
 
     window.onload = function(): void {
+
         let rice: number = 1;
         let row: number = 0;
         for (let i: number = 0; i < 64; i++) { //For-Schleife
@@ -26,12 +26,12 @@ namespace Nr3a_Schachbrett {
             element.innerText = "" + rice;
             rice *= 2;
             document.body.appendChild(element);
-
-            div = document.createElement("div");
-            div.id = "move";
-            document.addEventListener("mousemove", updateBox);
-            document.body.appendChild(div);
         }
+
+        div = document.createElement("div");
+        div.id = "move";
+        document.addEventListener("mousemove", updateBox);
+        document.body.appendChild(div);
     };
 
     function selectDiv(event: MouseEvent): void {
@@ -41,7 +41,8 @@ namespace Nr3a_Schachbrett {
         } else {
             sum -= parseInt(clickedDiv.textContent);
         }
-        //updateSum();
+
+        updateSum();
     }
 
     function updateSum(): void {

@@ -24,11 +24,11 @@ var Nr3a_Schachbrett;
             element.innerText = "" + rice;
             rice *= 2;
             document.body.appendChild(element);
-            div = document.createElement("div");
-            div.id = "move";
-            document.addEventListener("mousemove", updateBox);
-            document.body.appendChild(div);
         }
+        div = document.createElement("div");
+        div.id = "move";
+        document.addEventListener("mousemove", updateBox);
+        document.body.appendChild(div);
     };
     function selectDiv(event) {
         var clickedDiv = event.target;
@@ -38,7 +38,7 @@ var Nr3a_Schachbrett;
         else {
             sum -= parseInt(clickedDiv.textContent);
         }
-        //updateSum();
+        updateSum();
     }
     function updateSum() {
         var selectedDivs = document.getElementsByClassName("selected");
