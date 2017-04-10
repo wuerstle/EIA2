@@ -6,7 +6,7 @@ div {
 	padding-top: 1em;
 }
 
-#deckCards {
+#stapel {
 	float: left;
 	position: absolute;
 	top: 3em;
@@ -17,7 +17,7 @@ div {
 	color: white;
 }
 
-#discard {
+#ablage {
 	float: right;
 	position: absolute;
 	top: 3em;
@@ -28,12 +28,15 @@ div {
 	/*display: none;*/
 }
 
-#handCards {
-	float: left;
-	position: absolute;
+.hand {
+	flaot: left;
+	clear: right;
+	position: relative;
+	display: inline;
 	top: 20em;
-	left: 6em;
-	border: 1px solid black;
-	border-radius: 10px;
+	margin-left: 7em;
+	font-weight: 700;
+	color: darkred;
 }
+
 
