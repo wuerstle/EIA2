@@ -1,3 +1,8 @@
+//Aufgabe: Nr. 5
+//Name: Lisa Würstle
+//Matrikel: 254072
+//Datum: 30.04.2017
+//In Zusammenarbeit mit Bersu Inanir
 var L5_Animation;
 (function (L5_Animation) {
     window.addEventListener("load", init);
@@ -72,6 +77,15 @@ var L5_Animation;
         for (var i = 0; i < z; i++) {
             x[i] += Math.random() * 4 - 2.1;
             y[i] += Math.random() * 7 - 3.5;
+            if (x[i] < 0) {
+                x[i] = crc2.canvas.width;
+            }
+            if (y[i] < 0) {
+                y[i] = crc2.canvas.height;
+            }
+            if (y[i] >= crc2.canvas.height) {
+                y[i] = 0;
+            }
             drawBee(x[i], y[i]); //male die Bienen
             window.setTimeout(animate, 40);
         }
@@ -266,8 +280,19 @@ var L5_Animation;
     function drawBee(_x, _y) {
         crc2.beginPath();
         crc2.fillStyle = "#ffcd38";
-        crc2.strokeStyle = "#ffffff";
         crc2.arc(_x, _y, 5, 0, 2 * Math.PI);
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+        crc2.beginPath();
+        crc2.fillStyle = "#000000";
+        crc2.arc(_x + 4, _y, 5, 0, 2 * Math.PI);
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+        crc2.beginPath();
+        crc2.fillStyle = "#ffcd38";
+        crc2.arc(_x + 8, _y, 5, 0, 2 * Math.PI);
         crc2.closePath();
         crc2.fill();
         crc2.stroke();
