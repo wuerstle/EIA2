@@ -61,25 +61,30 @@ namespace L5_Animation {
 
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height); //Speichern des Canvas als Bild
 
+        //Startposition der 10 Bienen
         for (let i: number = 0; i < z; i++) {
-          x[i] = 400;
-          y[i] = 225;  
+          x[i] = 400; //x-Koordinate der Öffnung des Bienenkorbs
+          y[i] = 225;  //y-Koordinate der Öffnung des Bienenkorbs
         }
         
-        canvas.addEventListener("touchstart", addBee);
-        canvas.addEventListener("click", addBee);
+        canvas.addEventListener("touchend", addBee); //Smartphone: hinzufügen einer Biene am Ende der Berührung mit dem Finger
+        canvas.addEventListener("click", addBee); //Computer: hinzufügen einer Biene beim Klicken auf den Canvas
 
-        window.setTimeout(animate, 200);
+        window.setTimeout(animate, 100);
     }
 
     //Animation
     function animate(): void {
         crc2.putImageData(imgData, 0, 0); //zurückschreiben
+        let maxWidth: number = 450;
+        let minWidth: number = 0;
+        let maxHeight: number = 250;
+        let minHeight: number = 0;
         for (let i: number = 0; i < z; i++) {
-            x[i] += Math.random() * 3 - 2;
-            y[i] += Math.random() * 6 - 3;
+            x[i] += Math.floor(Math.random() * (maxWidth - minWidth + 0) + minWidth);
+            y[i] += Math.floor(Math.random() * (maxHeight - minHeight + 0) + minHeight);
             drawBee(x[i], y[i]);
-            window.setTimeout(animate, 200);
+            window.setTimeout(animate, 100);
         }
     }
 
