@@ -69,22 +69,19 @@ namespace L5_Animation {
         
         canvas.addEventListener("touchend", addBee); //Smartphone: hinzufügen einer Biene am Ende der Berührung mit dem Finger
         canvas.addEventListener("click", addBee); //Computer: hinzufügen einer Biene beim Klicken auf den Canvas
-
-        window.setTimeout(animate, 100);
+    
+        //setTimeOut
+        window.setTimeout(animate, 40);
     }
 
     //Animation
     function animate(): void {
         crc2.putImageData(imgData, 0, 0); //zurückschreiben
-        let maxWidth: number = 450;
-        let minWidth: number = 0;
-        let maxHeight: number = 250;
-        let minHeight: number = 0;
         for (let i: number = 0; i < z; i++) {
-            x[i] += Math.floor(Math.random() * (maxWidth - minWidth + 0) + minWidth);
-            y[i] += Math.floor(Math.random() * (maxHeight - minHeight + 0) + minHeight);
-            drawBee(x[i], y[i]);
-            window.setTimeout(animate, 100);
+            x[i] += Math.random() * 4 - 2.1;
+            y[i] += Math.random() * 7 - 3.5;
+            drawBee(x[i], y[i]); //male die Bienen
+            window.setTimeout(animate, 40);
         }
     }
 
@@ -92,6 +89,7 @@ namespace L5_Animation {
         x.push(400);
         y.push(225);
         z++;
+        console.log("added Bee");
     }
 
     //Sonne
@@ -291,9 +289,11 @@ namespace L5_Animation {
     function drawBee(_x: number, _y: number): void {
         crc2.beginPath();
         crc2.fillStyle = "#ffcd38";
+        crc2.strokeStyle = "#ffffff";
         crc2.arc(_x, _y, 5, 0, 2 * Math.PI);
         crc2.closePath();
         crc2.fill();
+        crc2.stroke();
     }
 
 }
