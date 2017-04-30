@@ -66,7 +66,7 @@ namespace L5_Animation {
           y[i] = 225;  
         }
         
-        canvas.addEventListener("touch", addBee);
+        canvas.addEventListener("touchend", addBee);
         canvas.addEventListener("click", addBee);
 
         window.setTimeout(animate, 200);
