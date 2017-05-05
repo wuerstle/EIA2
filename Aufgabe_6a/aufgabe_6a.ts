@@ -113,7 +113,7 @@ namespace L6_InterfaceBee {
     }
 
     function addBee(): void {
-        bees.push({x: 400, y: 225, color: "", size: 5});
+        bees.push({x: 400, y: 225, color: "hsl(" + Math.random() * 360 + ", 100%, 50%)", size: Math.random() * 4 + 2});
         z++;
         console.log("added Bee");
     }
