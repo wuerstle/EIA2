@@ -27,7 +27,7 @@ var StudiVZ;
     }
     //neues Objekt vom Typ StudentData füllen und in students ablegen
     function saveData(_input) {
-        var data = _input.split(", ");
+        var data = _input.split(", "); //split a string into an array and returns the new array
         var s = {
             registrationnr: parseInt(data[0]),
             name: data[1],

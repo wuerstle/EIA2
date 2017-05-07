@@ -38,9 +38,9 @@ namespace StudiVZ {
 
     //neues Objekt vom Typ StudentData füllen und in students ablegen
     function saveData(_input: string): string {
-        let data: string[] = _input.split(", ");
-        let s: StudentData = {
-            registrationnr: parseInt(data[0]),
+        let data: string[] = _input.split(", "); //split a string into an array and returns the new array
+        let s: StudentData = { 
+            registrationnr: parseInt(data[0]), //Daten werden im Array Students abgelegt
             name: data[1],
             firstname: data[2],
             age: parseInt(data[3]),
