@@ -23,7 +23,7 @@ namespace StudiVZ {
         switch (action) {
             case "n":
             case "N":
-                let input: string = prompt("Eingabe (jeweils mit Komma getrennt) von\nMatrikelnummer, Name, Vorname, Alter, Geschlecht (0 oder 1) und Kommentar");
+                let input: string = prompt("Eingabe (jeweils mit Komma getrennt) von\nMatrikelnummer, Name, Vorname, Alter, Geschlecht (0 für male oder 1 für female) und Kommentar");
                 alert(saveData(input));
                 break;
             case "a":
@@ -45,7 +45,7 @@ namespace StudiVZ {
             name: data[1],
             firstname: data[2],
             age: parseInt(data[3]),
-            sex: parseInt(data[4]) == 1,
+            sex: parseInt(data[4]) == 1, //1 = female, 0 = male
             comment: data[5]
         };
         students.push(s);
