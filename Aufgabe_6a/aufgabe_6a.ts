@@ -7,6 +7,7 @@
 namespace L6_InterfaceBee {
     window.addEventListener("load", init);
     
+    //Bienen Interface
     interface Bee {
         x: number;
         y: number;
@@ -79,8 +80,8 @@ namespace L6_InterfaceBee {
             let b: Bee = {x: 0, y: 0, color: "", size: 0};
             b.x = 400; //x-Koordinate der Öffnung des Bienenkorbs
             b.y = 225;  //y-Koordinate der Öffnung des Bienenkorbs
-            b.color = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
-            b.size = Math.random() * 4 + 2;
+            b.color = "hsl(" + Math.random() * 360 + ", 100%, 50%)"; //Random color
+            b.size = Math.random() * 4 + 2; //Random Size
             bees[i] = b;
         }
 
