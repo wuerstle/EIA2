@@ -1,3 +1,9 @@
+//Aufgabe: Nr. 6b
+//Name: Lisa Würstle
+//Matrikel: 254072
+//Datum: 07.05.2017
+//In Zusammenarbeit mit Bersu Inanir
+
 namespace StudiVZ {
     interface StudentData {
         registrationnr: number;
