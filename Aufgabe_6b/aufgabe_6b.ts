@@ -5,7 +5,8 @@
 //In Zusammenarbeit mit Bersu Inanir
 
 namespace StudiVZ {
-    interface StudentData {
+    //Interface StudentData
+    interface StudentData { 
         registrationnr: number;
         name: string;
         firstname: string;
