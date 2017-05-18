@@ -72,8 +72,7 @@ namespace L7_Classes {
         crc2.putImageData(imgData, 0, 0); //zurückschreiben
         for (let i: number = 0; i < z; i++) {
             let b: Bee = bees[i];
-            b.move();
-            b.drawBee();
+            b.update();
         }
         window.setTimeout(animate, 10);
     }

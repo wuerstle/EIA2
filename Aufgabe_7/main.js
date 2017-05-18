@@ -60,8 +60,7 @@ var L7_Classes;
         L7_Classes.crc2.putImageData(imgData, 0, 0); //zurückschreiben
         for (var i = 0; i < z; i++) {
             var b = bees[i];
-            b.move();
-            b.drawBee();
+            b.update();
         }
         window.setTimeout(animate, 10);
     }
