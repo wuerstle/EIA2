@@ -1,7 +1,7 @@
 //Aufgabe: Nr. 7
 //Name: Lisa Würstle
 //Matrikel: 254072
-//Datum: 14.05.2017
+//Datum: 18.05.2017
 //Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 var L7_Classes;
 (function (L7_Classes) {
