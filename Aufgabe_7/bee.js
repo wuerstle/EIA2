@@ -6,7 +6,7 @@
 var L7_Classes;
 (function (L7_Classes) {
     var Bee = (function () {
-        function Bee(_x, _y, _color, _size) {
+        function Bee(_x, _y) {
             this.x = _x;
             this.y = _y;
             this.color = "hsl(" + Math.random() * 360 + ", 100%, 50%)";

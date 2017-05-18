@@ -11,12 +11,11 @@ namespace L7_Classes {
         color: string;
         size: number;
 
-        constructor(_x: number, _y: number, _color: string, _size: number) {
+        constructor(_x: number, _y: number) {
             this.x = _x;
             this.y = _y;
             this.color = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
             this.size = Math.random() * 4 + 2;
-
         }
 
         update(): void {
