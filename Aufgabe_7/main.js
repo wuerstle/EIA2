@@ -1,7 +1,7 @@
 //Aufgabe: Nr. 7
 //Name: Lisa Würstle
 //Matrikel: 254072
-//Datum: 14.05.2017
+//Datum: 18.05.2017
 //Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 var L7_Classes;
 (function (L7_Classes) {
@@ -47,7 +47,7 @@ var L7_Classes;
         imgData = L7_Classes.crc2.getImageData(0, 0, canvas.width, canvas.height); //Speichern des Canvas als Bild
         //Startposition der 10 Bienen
         for (var i = 0; i < z; i++) {
-            var b = new L7_Classes.Bee(400, 225, this.color, this.size);
+            var b = new L7_Classes.Bee(400, 225);
             bees[i] = b;
         }
         canvas.addEventListener("touchend", addBee); //Smartphone: hinzufügen einer Biene am Ende der Berührung mit dem Finger
@@ -66,7 +66,7 @@ var L7_Classes;
         window.setTimeout(animate, 10);
     }
     function addBee() {
-        var bee = new L7_Classes.Bee(400, 225, this.color, this.size);
+        var bee = new L7_Classes.Bee(400, 225);
         bees.push(bee);
         z++;
         console.log("added Bee");

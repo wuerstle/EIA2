@@ -1,7 +1,7 @@
 //Aufgabe: Nr. 7
 //Name: Lisa Würstle
 //Matrikel: 254072
-//Datum: 14.05.2017
+//Datum: 18.05.2017
 //Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 
 namespace L7_Classes {
@@ -56,7 +56,7 @@ namespace L7_Classes {
 
         //Startposition der 10 Bienen
         for (let i: number = 0; i < z; i++) {
-            let b: Bee = new Bee(400, 225, this.color, this.size);
+            let b: Bee = new Bee(400, 225);
             bees[i] = b;
         }
 
@@ -79,7 +79,7 @@ namespace L7_Classes {
     }
 
     function addBee(): void {
-        let bee: Bee = new Bee(400, 225, this.color, this.size);
+        let bee: Bee = new Bee(400, 225);
         bees.push(bee);
         z++;
         console.log("added Bee");
