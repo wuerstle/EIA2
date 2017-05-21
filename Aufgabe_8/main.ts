@@ -1,4 +1,4 @@
-//Aufgabe: Nr. 8
+//Aufgabe: Nr. 8 Inheritance
 //Name: Lisa Würstle
 //Matrikel: 254072
 //Datum: 21.05.2017
