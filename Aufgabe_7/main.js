@@ -1,7 +1,7 @@
 //Aufgabe: Nr. 7
 //Name: Lisa Würstle
 //Matrikel: 254072
-//Datum: 18.05.2017
+//Datum: 21.05.2017
 //Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 var L7_Classes;
 (function (L7_Classes) {
@@ -11,6 +11,8 @@ var L7_Classes;
     var bees = [];
     var flowers = [];
     function init(_event) {
+        var x = 0;
+        var y = 0;
         var canvas;
         canvas = document.getElementsByTagName("canvas")[0];
         L7_Classes.crc2 = canvas.getContext("2d");
@@ -42,8 +44,21 @@ var L7_Classes;
         drawRainDrop(80, 60);
         randomPositionRain(); //Aufruf der Funktion für die zufälige Positionierung von Regentropfen
         drawBeehive(410, 210);
-        var f = new L7_Classes.Flower(this.x, this.y);
-        f.drawRandomFlowers();
+        for (var z_1 = 0; z_1 < 30; z_1++) {
+            var n = Math.floor((Math.random() * 3) + 0);
+            if (n == 0) {
+                var f1 = new L7_Classes.Flower(x, y);
+                f1.setRandomPosition(); //zufällige Position
+                f1.drawFlowerOne(); //FlowerOne wird gezeichnet
+            }
+            else {
+                var f2 = new L7_Classes.Flower(x, y);
+                f2.setRandomPosition(); //zufällige Position
+                f2.drawFlowerTwo(); //FlowerTwo wird gezeichnet
+            }
+            flowers.push(new L7_Classes.Flower(x, y)); //wird dem Flower Array hinzugepusht
+        }
+        console.log(flowers);
         imgData = L7_Classes.crc2.getImageData(0, 0, canvas.width, canvas.height); //Speichern des Canvas als Bild
         //Startposition der 10 Bienen
         for (var i = 0; i < z; i++) {
