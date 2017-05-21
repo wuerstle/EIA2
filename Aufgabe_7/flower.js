@@ -1,30 +1,18 @@
 //Aufgabe: Nr. 7
 //Name: Lisa Würstle
 //Matrikel: 254072
-//Datum: 14.05.2017
+//Datum: 21.05.2017
 //Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 var L7_Classes;
 (function (L7_Classes) {
     var Flower = (function () {
         function Flower(_x, _y) {
-            this.flowers = [];
             this.x = _x;
             this.y = _y;
         }
-        Flower.prototype.drawRandomFlowers = function () {
-            for (var z = 0; z < 25; z++) {
-                var n = Math.floor((Math.random() * 3) + 0);
-                this.x = (Math.random() * (L7_Classes.crc2.canvas.width - 100) + 50);
-                this.y = (Math.random() * (L7_Classes.crc2.canvas.height - 150) + 130);
-                if (n == 0) {
-                    this.drawFlowerOne();
-                }
-                else {
-                    this.drawFlowerTwo();
-                }
-                this.flowers.push(new Flower(this.x, this.y));
-            }
-            console.log(this.flowers);
+        Flower.prototype.setRandomPosition = function () {
+            this.x = (Math.random() * (L7_Classes.crc2.canvas.width - 100) + 50);
+            this.y = (Math.random() * (L7_Classes.crc2.canvas.height - 150) + 130);
         };
         //Blume 1
         Flower.prototype.drawFlowerOne = function () {
