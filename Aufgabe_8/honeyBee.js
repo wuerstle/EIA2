@@ -16,9 +16,9 @@ var L8_Inheritance;
         function HoneyBee(_x, _y) {
             _super.call(this, _x, _y);
             this.speed = 0.06;
-            this.setRandomFlowerObjective();
+            this.setRandomTargetPosition();
         }
-        HoneyBee.prototype.setRandomFlowerObjective = function () {
+        HoneyBee.prototype.setRandomTargetPosition = function () {
             var objectiveFlower = Math.round(Math.random() * (L8_Inheritance.flowers.length - 1));
             this.xObjective = L8_Inheritance.flowers[objectiveFlower].x; //x-Koordinaten
             this.yObjective = L8_Inheritance.flowers[objectiveFlower].y; //y-Koordinaten
@@ -26,8 +26,12 @@ var L8_Inheritance;
         HoneyBee.prototype.move = function () {
             var dx = this.xObjective - this.x;
             var dy = this.yObjective - this.y;
-            //An dieser Stelle bin ich leider nicht weiter gekommen. 
-            //Hier fehlt, dass die Biene zu einer bestimmten Blume fliegt. 
+            if (Math.abs(dx) < 1 && Math.abs(dy) < 1)
+                this.setRandomTargetPosition();
+            else {
+                this.x += dx * this.speed;
+                this.y += dy * this.speed;
+            }
         };
         HoneyBee.prototype.drawHoneyBee = function () {
             L8_Inheritance.crc2.beginPath();

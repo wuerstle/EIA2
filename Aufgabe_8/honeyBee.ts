@@ -14,10 +14,10 @@ namespace L8_Inheritance {
         constructor(_x: number, _y: number) {
             super(_x, _y);
             this.speed = 0.06;
-            this.setRandomFlowerObjective();
+            this.setRandomTargetPosition();
         }
 
-        setRandomFlowerObjective(): void {
+        setRandomTargetPosition(): void {
             let objectiveFlower: number = Math.round(Math.random() * (flowers.length - 1));
             this.xObjective = flowers[objectiveFlower].x; //x-Koordinaten
             this.yObjective = flowers[objectiveFlower].y; //y-Koordinaten
@@ -26,9 +26,13 @@ namespace L8_Inheritance {
         move(): void {
             let dx: number = this.xObjective - this.x;
             let dy: number = this.yObjective - this.y;
-            //An dieser Stelle bin ich leider nicht weiter gekommen. 
-            //Hier fehlt, dass die Biene zu einer bestimmten Blume fliegt. 
-           
+            if (Math.abs(dx) < 1 && Math.abs(dy) < 1)
+                this.setRandomTargetPosition();
+            else {
+                this.x += dx * this.speed;
+                this.y += dy * this.speed;
+            }
+
         }
 
         drawHoneyBee(): void {
