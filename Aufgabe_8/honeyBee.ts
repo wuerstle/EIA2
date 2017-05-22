@@ -17,16 +17,18 @@ namespace L8_Inheritance {
             this.setRandomTargetPosition();
         }
 
+        //Honigbienen sollen gezielt zu den Blumen fliegen, welche im Array flowers gespeichert sind
         setRandomTargetPosition(): void {
-            let objectiveFlower: number = Math.round(Math.random() * (flowers.length - 1));
-            this.xObjective = flowers[objectiveFlower].x; //x-Koordinaten
-            this.yObjective = flowers[objectiveFlower].y; //y-Koordinaten
+            let objectiveFlower: number = Math.round(Math.random() * (flowers.length - 1)); //steuer die ganzen Blumen im Array von der Position 0 bis flowers.length an
+            this.xObjective = flowers[objectiveFlower].x; //x-Koordinate von der Blume - nimm dir das Array flowers und daraus die random Ziel-Blumen 
+            this.yObjective = flowers[objectiveFlower].y; //y-Koordinaten von der Blume
         }
 
+        //Flugbahn der Bienen zu den Blumen
         move(): void {
             let dx: number = this.xObjective - this.x;
             let dy: number = this.yObjective - this.y;
-            if (Math.abs(dx) < 1 && Math.abs(dy) < 1)
+            if (Math.abs(dx) < 1 && Math.abs(dy) < 1) //Math.abs = Vorzeichen spielt keine Rolle
                 this.setRandomTargetPosition();
             else {
                 this.x += dx * this.speed;

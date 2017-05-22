@@ -18,11 +18,13 @@ var L8_Inheritance;
             this.speed = 0.06;
             this.setRandomTargetPosition();
         }
+        //Honigbienen sollen gezielt zu den Blumen fliegen, welche im Array flowers gespeichert sind
         HoneyBee.prototype.setRandomTargetPosition = function () {
-            var objectiveFlower = Math.round(Math.random() * (L8_Inheritance.flowers.length - 1));
-            this.xObjective = L8_Inheritance.flowers[objectiveFlower].x; //x-Koordinaten
-            this.yObjective = L8_Inheritance.flowers[objectiveFlower].y; //y-Koordinaten
+            var objectiveFlower = Math.round(Math.random() * (L8_Inheritance.flowers.length - 1)); //steuer die ganzen Blumen im Array von der Position 0 bis flowers.length an
+            this.xObjective = L8_Inheritance.flowers[objectiveFlower].x; //x-Koordinate von der Blume - nimm dir das Array flowers und daraus die random Ziel-Blumen 
+            this.yObjective = L8_Inheritance.flowers[objectiveFlower].y; //y-Koordinaten von der Blume
         };
+        //Flugbahn der Bienen zu den Blumen
         HoneyBee.prototype.move = function () {
             var dx = this.xObjective - this.x;
             var dy = this.yObjective - this.y;
