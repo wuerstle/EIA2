@@ -1,9 +1,9 @@
 //Aufgabe: Nr. 8
 //Name: Lisa Würstle
 //Matrikel: 254072
-//Datum: 21.05.2017
+//Datum: 25.05.2017
 //Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
-//Code nicht vollständig funktionsfähig!
+//Code verbessert
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -15,7 +15,7 @@ var L8_Inheritance;
         __extends(HoneyBee, _super);
         function HoneyBee(_x, _y) {
             _super.call(this, _x, _y);
-            this.speed = 0.06;
+            this.speed = 0.05; //Geschwindigkeit
             this.setRandomTargetPosition();
         }
         //Honigbienen sollen gezielt zu den Blumen fliegen, welche im Array flowers gespeichert sind
@@ -26,9 +26,9 @@ var L8_Inheritance;
         };
         //Flugbahn der Bienen zu den Blumen
         HoneyBee.prototype.move = function () {
-            var dx = this.xObjective - this.x;
+            var dx = this.xObjective - this.x; //Berechnung der Differenz
             var dy = this.yObjective - this.y;
-            if (Math.abs(dx) < 1 && Math.abs(dy) < 1)
+            if (Math.abs(dx) < 0.5 && Math.abs(dy) < 0.5)
                 this.setRandomTargetPosition();
             else {
                 this.x += dx * this.speed;

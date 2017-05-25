@@ -1,9 +1,9 @@
 //Aufgabe: Nr. 8
 //Name: Lisa Würstle
 //Matrikel: 254072
-//Datum: 21.05.2017
+//Datum: 25.05.2017
 //Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
-//Code nicht vollständig funktionsfähig!
+//Code verbessert
 
 namespace L8_Inheritance {
     export class HoneyBee extends Bee { //HoneyBee gehört zu Bee
@@ -13,7 +13,7 @@ namespace L8_Inheritance {
 
         constructor(_x: number, _y: number) {
             super(_x, _y);
-            this.speed = 0.06;
+            this.speed = 0.05; //Geschwindigkeit
             this.setRandomTargetPosition();
         }
 
@@ -26,9 +26,9 @@ namespace L8_Inheritance {
 
         //Flugbahn der Bienen zu den Blumen
         move(): void {
-            let dx: number = this.xObjective - this.x;
+            let dx: number = this.xObjective - this.x; //Berechnung der Differenz
             let dy: number = this.yObjective - this.y;
-            if (Math.abs(dx) < 1 && Math.abs(dy) < 1) //Math.abs = Vorzeichen spielt keine Rolle
+            if (Math.abs(dx) < 0.5 && Math.abs(dy) < 0.5) //Math.abs = Vorzeichen spielt keine Rolle, ist der absolute Wert näher als 0.5 px entfernt?
                 this.setRandomTargetPosition();
             else {
                 this.x += dx * this.speed;
