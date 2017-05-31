@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>Online-Eisdealer</title>
+<link href="https://fonts.googleapis.com/css?family=Barrio"
+	rel="stylesheet">
+<link rel="stylesheet" href="aufgabe_9.css" type="text/css" />
+<script type="text/javascript" src="aufgabe_9.js"></script>
+
+</head>
+<body>
+	<header>
+		<h3>ONLINE-EISDEALER</h3>
+		<img src="eiscreme.jpeg" alt="Eis">
+		<hr/>
+	</header>
+	<main>
+	<div id="logIn">
+			Username <input type="username" name="Username" /> 
+			Password <input type="password" name="Password" />
+	</div>
+
+	<fieldset id="checkbox1">
+		<legend> Select your FLAVOURS </legend>
+	</fieldset>
+
+	<fieldset id="select1">
+		<legend> Select your TOPPING </legend>
+		<select name="Select" id="select">
+			<optgroup label="Toppings"></optgroup>
+			<option value="option1">Chocolate Sauce</option>
+			<option value="option2" selected>Vanilla Sauce</option>
+			<option value="option3">Dark Cream</option>
+			<option value="option4">White Cream</option>
+		</select>
+	</fieldset>
+
+	<fieldset id="radiobutton1">
+		<legend> Select your BOX </legend>
+	</fieldset>
+	
+	<fieldset id="datas">
+		<legend>Your DATAS here</legend>
+		<input type="name" name="Name" placeholder="Name" /> 
+		<input type="name" name="Firstname" placeholder="Firstmame" />
+		<input type="text" name="Street" placeholder="Street" /> 
+		<input type="text" name="Post Code" placeholder="Post Code" />
+		<input type="text" name="City" placeholder="City" /> 
+		<input type="email" name="Email" placeholder="E-Mail"/> 
+	</fieldset>
+	
+	<fieldset id="radiobutton2">
+		<legend> DELIVERY </legend>
+	</fieldset>
+	</main>
+	
+	<aside>
+		<fieldset id="shoppingbag">
+			<legend> SHOPPING BAG </legend>
+		</fieldset>
+	</aside>
+	<button type="button" name="Button">SEND</button>
+</body>
+</html>
