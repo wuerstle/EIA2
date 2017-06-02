@@ -1,3 +1,9 @@
+//Aufgabe: Nr. 9 Form Elements
+//Name: Lisa Würstle
+//Matrikel: 254072
+//Datum: 02.06.2017
+//Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+//mit Hilfe von Saschas Code aus dem Tutorium
 var A9_FormElements;
 (function (A9_FormElements) {
     window.addEventListener("load", init);
