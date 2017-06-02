@@ -10,47 +10,51 @@ var A9_FormElements;
     //Array für Lieferoptionen
     var delivery = ["Express", "Standard", "Premium"];
     var inputDelivery = [];
-    //Preis für Eissorte
-    var flavourPrice = 1;
-    //Preis für Extras
-    var toppingPrice = 0.5;
-    //boxes are free
     //FieldSet in dem alle Inputs angeordnet werden
     var fieldSet;
+    //Kugel Eis: 2 Euro, Toppings: aufs Haus, Boxes: 1 Euro, Versand: 3 Euro
     function init(_event) {
         fieldSet = document.getElementsByTagName("fieldset")[0]; //FieldSet 1
-        createCheckbox();
-        fieldSet = document.getElementsByTagName("fieldset")[2, 4]; //FieldSet 3
-        createRadio();
+        createFlavour();
+        fieldSet.addEventListener("change", handleChange); //EventListener Flavour
+        fieldSet = document.getElementsByTagName("fieldset")[2]; //FieldSet 3
+        createBoxes();
+        fieldSet.addEventListener("change", handleChange); //EventListener Boxes
+        fieldSet = document.getElementsByTagName("fieldset")[4]; //Fieldset 5
+        createDelivery();
+        fieldSet.addEventListener("change", handleChange); //EventListener Delivery
+        fieldSet = document.getElementsByTagName("fieldset")[5]; //Fieldset 6
         fieldSet.addEventListener("change", handleChange);
     }
-    function createCheckbox() {
+    function createFlavour() {
         //erstellt pro Eissorte einen Input
         for (var i = 0; i < flavours.length; i++) {
             console.log(flavours[i]);
-            createInputCheckbox(flavours[i]);
+            createInputFlavour(flavours[i]);
         }
     }
-    function createInputCheckbox(_flavours) {
+    function createInputFlavour(_flavours) {
         var label = document.createElement("label");
         var input = document.createElement("input");
         label.innerText = _flavours;
         label.appendChild(input);
-        input.type = "checkbox"; //Art des Inputs
-        input.name = "CheckboxFlavours"; //Name des Inputs
-        input.value = "flavours";
-        input.id = "checkbox1";
+        input.type = "number"; //Art des Inputs
+        input.name = "NumberFlavours"; //Name des Inputs
+        input.value = "0";
+        input.min = "0";
+        input.max = "10";
+        input.id = "number";
         fieldSet.appendChild(label);
         inputFlavour.push(input);
     }
-    function createRadio() {
+    function createBoxes() {
         //erstellt pro Box einen Input
         for (var i = 0; i < boxes.length; i++) {
             console.log(boxes[i]);
-            createInputRadio(boxes[i]);
+            createInputBoxes(boxes[i]);
         }
     }
-    function createInputRadio(_boxes) {
+    function createInputBoxes(_boxes) {
         var label = document.createElement("label");
         var input = document.createElement("input");
         label.innerText = _boxes;
@@ -62,14 +66,48 @@ var A9_FormElements;
         fieldSet.appendChild(label);
         inputBoxes.push(input);
     }
+    function createDelivery() {
+        for (var i = 0; i < delivery.length; i++) {
+            console.log(delivery[i]);
+            createInputDelivery(delivery[i]);
+        }
+    }
+    function createInputDelivery(_boxes) {
+        var label = document.createElement("label");
+        var input = document.createElement("input");
+        label.innerText = _boxes;
+        label.appendChild(input);
+        input.type = "radio"; //Art des Inputs
+        input.name = "RadioBoxes";
+        input.value = "boxes";
+        input.id = "radiobutton1";
+        fieldSet.appendChild(label);
+        inputDelivery.push(input);
+    }
     function handleChange(_event) {
         var sum = 0;
         for (var i = 0; i < inputFlavour.length; i++) {
-            if (inputFlavour[i].checked) {
-                sum += 1;
+            sum += parseInt(inputFlavour[i].value);
+            if (parseInt(inputFlavour[i].value) > 0) {
+                fieldSet.innerText += flavours[i] + " " + (parseInt(inputFlavour[i].value) * 2) + "€" + "\n";
             }
         }
-        console.log(); //gib das Ergenbis auf der Konsole aus
+        for (var i = 0; i < inputBoxes.length; i++) {
+            if (inputBoxes[i].checked) {
+                sum += 1;
+                fieldSet.innerText += boxes[i] + " 1€" + "\n";
+            }
+        }
+        for (var i = 0; i < inputDelivery.length; i++) {
+            if (inputDelivery[i].checked) {
+                sum += 3;
+                fieldSet.innerText += delivery[i] + " 3€" + "\n";
+            }
+        }
+        console.log(sum); //gib das Ergenbis auf der Konsole aus
+    }
+    function clickButton() {
+        //Funktion für den Bestell-Button 
     }
 })(A9_FormElements || (A9_FormElements = {}));
 //# sourceMappingURL=aufgabe_9.js.map

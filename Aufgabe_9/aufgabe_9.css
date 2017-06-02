@@ -1,6 +1,3 @@
-body {
-	background-color: white;
-}
 * {
 	display: block;
 	vertical-align: top
@@ -26,10 +23,11 @@ input:required {
 	background: #aaaaaa;
 }
 fieldset {
-	width: 400px;
+	width: 40%;
 	background-color: thistle;
 	margin-left: 100px;
 	margin-top: 20px;
+	z-index: 2;
 }
 svg, figure, option {
 	display: inline;
@@ -45,21 +43,19 @@ h3 {
 	font-family: "Barrio";
 	font-size: 1.7em;
 }
-img {
+#eislogo {
 	height: 60px;
 	width: 30px;
 	margin: 0 auto;
 	display: block;
 }
-aside {
-	float: right;
-	position: absolute;
-	top: 250px;
-	left: 590px;
-	color: grey;
-}
 button {
-	margin-left: 270px;
+	margin-left: 300px;
 	margin-top: 15px;
 	background-color: lightcyan;
+	z-index: 2;
+}
+#select {
+	width: 40%;
+	z-index: 2;
 }

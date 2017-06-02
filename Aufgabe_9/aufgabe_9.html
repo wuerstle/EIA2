@@ -3,8 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <title>Online-Eisdealer</title>
-<link href="https://fonts.googleapis.com/css?family=Barrio"
-	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Barrio" rel="stylesheet">
 <link rel="stylesheet" href="aufgabe_9.css" type="text/css" />
 <script type="text/javascript" src="aufgabe_9.js"></script>
 
@@ -12,7 +11,7 @@
 <body>
 	<header>
 		<h3>ONLINE-EISDEALER</h3>
-		<img src="eiscreme.jpeg" alt="Eis">
+		<img id ="eislogo"src="eiscreme.jpeg" alt="Eis">
 		<hr/>
 	</header>
 	<main>
@@ -21,7 +20,7 @@
 			Password <input type="password" name="Password" />
 	</div>
 
-	<fieldset id="checkbox">
+	<fieldset id="number">
 		<legend> Select your FLAVOURS </legend>
 	</fieldset>
 
@@ -30,7 +29,7 @@
 		<select name="Select" id="select">
 			<optgroup label="Toppings"></optgroup>
 			<option value="option1">Chocolate Sauce</option>
-			<option value="option2" selected>Vanilla Sauce</option>
+			<option value="option2">Vanilla Sauce</option>
 			<option value="option3">Dark Cream</option>
 			<option value="option4">White Cream</option>
 		</select>
@@ -58,8 +57,9 @@
 	<aside>
 		<fieldset id="shoppingbag">
 			<legend> SHOPPING BAG </legend>
+			<br>
 		</fieldset>
 	</aside>
-	<button type="button" name="Button">SEND</button>
+	<button id="send" type="button" name="Button">SEND</button>
 </body>
 </html>
