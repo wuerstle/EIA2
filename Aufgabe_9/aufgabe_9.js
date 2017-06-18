@@ -16,6 +16,9 @@ var A9_FormElements;
     //Array für Lieferoptionen
     var delivery = ["Express", "Standard", "Premium"];
     var inputDelivery = [];
+    //Array für Toppings
+    var toppings = ["Chocolate Sauce", "Vanilla Sauce", "White Cream", "Dark Cream"];
+    var inputToppings = [];
     //FieldSet in dem alle Inputs angeordnet werden
     var fieldSet;
     //Kugel Eis: 2 Euro, Toppings: aufs Haus, Boxes: 1 Euro, Versand: 3 Euro
@@ -23,6 +26,9 @@ var A9_FormElements;
         fieldSet = document.getElementsByTagName("fieldset")[0]; //FieldSet 1
         createFlavour();
         fieldSet.addEventListener("change", handleChange); //EventListener Flavour
+        fieldSet = document.getElementsByTagName("fieldset")[1]; //FieldSet 2
+        createToppings();
+        fieldSet.addEventListener("change", handleChange);
         fieldSet = document.getElementsByTagName("fieldset")[2]; //FieldSet 3
         createBoxes();
         fieldSet.addEventListener("change", handleChange); //EventListener Boxes
@@ -42,7 +48,7 @@ var A9_FormElements;
     function createInputFlavour(_flavours) {
         var label = document.createElement("label");
         var input = document.createElement("input");
-        label.innerText = _flavours;
+        label.innerHTML = _flavours;
         label.appendChild(input);
         input.type = "number"; //Art des Inputs
         input.name = "NumberFlavours"; //Name des Inputs
@@ -63,7 +69,7 @@ var A9_FormElements;
     function createInputBoxes(_boxes) {
         var label = document.createElement("label");
         var input = document.createElement("input");
-        label.innerText = _boxes;
+        label.innerHTML = _boxes;
         label.appendChild(input);
         input.type = "radio"; //Art des Inputs
         input.name = "RadioBoxes";
@@ -81,7 +87,7 @@ var A9_FormElements;
     function createInputDelivery(_boxes) {
         var label = document.createElement("label");
         var input = document.createElement("input");
-        label.innerText = _boxes;
+        label.innerHTML = _boxes;
         label.appendChild(input);
         input.type = "radio"; //Art des Inputs
         input.name = "RadioBoxes2";
@@ -89,6 +95,24 @@ var A9_FormElements;
         input.id = "radiobutton1";
         fieldSet.appendChild(label);
         inputDelivery.push(input);
+    }
+    function createToppings() {
+        for (var i = 0; i < toppings.length; i++) {
+            console.log(toppings[i]);
+            createInputToppings(toppings[i]);
+        }
+    }
+    function createInputToppings(_toppings) {
+        var label = document.createElement("label");
+        var input = document.createElement("input");
+        label.innerHTML = _toppings;
+        label.appendChild(input);
+        input.type = "checkbox";
+        input.name = "Toppings";
+        input.value = "toppings";
+        input.id = "Checkbox";
+        fieldSet.appendChild(label);
+        inputToppings.push(input);
     }
     function handleChange(_event) {
         var sum = 0;
@@ -111,10 +135,16 @@ var A9_FormElements;
                 fieldSet.innerHTML += delivery[i] + " 3€" + "\n";
             }
         }
+        for (var i = 0; i < inputToppings.length; i++) {
+            if (inputToppings[i].checked) {
+                sum += 0.5;
+                fieldSet.innerHTML += toppings[i] + " 0.5€" + "\n";
+            }
+        }
         console.log(sum); //gib das Ergenbis auf der Konsole aus
     }
     function clickButton() {
-        //Funktion für den Bestell-Button 
+        //Funktion zur Validierung
     }
 })(A9_FormElements || (A9_FormElements = {}));
 //# sourceMappingURL=aufgabe_9.js.map
