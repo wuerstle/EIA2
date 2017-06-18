@@ -1,7 +1,7 @@
 //Aufgabe: Nr. 9 Form Elements
 //Name: Lisa Würstle
 //Matrikel: 254072
-//Datum: 02.06.2017
+//Datum: 18.06.2017
 //Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 //mit Hilfe von Saschas Code aus dem Tutorium
 
@@ -27,7 +27,9 @@ namespace A9_FormElements {
     //FieldSet in dem alle Inputs angeordnet werden
     let fieldSet: HTMLFieldSetElement;
 
-    //Kugel Eis: 2 Euro, Toppings: aufs Haus, Boxes: 1 Euro, Versand: 3 Euro
+    let order: HTMLElement;
+
+    //Kugel Eis: 2 Euro, Toppings: 0.5 Euro, Boxes: 1 Euro, Versand: 3 Euro
 
     function init(_event: Event): void {
         fieldSet = document.getElementsByTagName("fieldset")[0]; //FieldSet 1
@@ -48,6 +50,9 @@ namespace A9_FormElements {
 
         fieldSet = document.getElementsByTagName("fieldset")[5]; //Fieldset 6
         fieldSet.addEventListener("change", handleChange);
+
+        order = document.getElementById("send"); //Send Button
+        order.addEventListener("click", clickButton);
 
     }
 
@@ -164,9 +169,113 @@ namespace A9_FormElements {
         }
 
         console.log(sum); //gib das Ergenbis auf der Konsole aus
+
     }
 
-    function clickButton(): void {
-        //Funktion zur Validierung
+    function clickButton(): void { //überprüft, ob alles ausgewählt bzw. richtig angegeben wurde
+        let validate: string[] = ["Something wrong: \n"];
+        let a: number = 0;
+        let b: number = 0;
+        let c: number = 0;
+
+        //Wurde eine Sorte gewählt?
+        for (let i: number = 0; i < inputFlavour.length; i++) {
+            if (parseInt(inputFlavour[i].value) > 0)
+                a += 1;
+        }
+        
+        if (a == 0) {
+            validate.push("Which Flavour?\n");
+        }
+
+        //Wurde eine Box ausgewählt?
+        for (let i: number = 0; i < inputBoxes.length; i++) {
+            if (inputBoxes[i].checked)
+                b += 1;
+        }
+        
+        if (b == 0) {
+            validate.push("Waffle, Cup, Grab Bag, or Wonder Waffle?\n");
+        }
+        
+        //Wurde eine Lieferoption gewählt?
+        for (let i: number = 0; i < inputDelivery.length; i++) {
+            if (inputDelivery[i].checked)
+                c += 1;
+        }
+        
+        if (c == 0) {
+            validate.push("Express, Standard or Premium?");
+        }
+
+        //Wurde ein Nachname angegeben?
+        let nachname: HTMLInputElement = <HTMLInputElement>document.getElementById("nachname");
+        if (nachname.validity.valid == false) {
+            nachname.style.backgroundColor = "red";
+            validate.push("Name\n");
+        }
+        else {
+            nachname.style.backgroundColor = "green";
+        }
+
+        //Wurde ein Vorname angegeben?
+        let vorname: HTMLInputElement = <HTMLInputElement>document.getElementById("vorname");
+        if (vorname.validity.valid == false) {
+            vorname.style.backgroundColor = "red";
+            validate.push("Firstname\n");
+        }
+        else {
+            vorname.style.backgroundColor = "green";
+        }
+
+        //Wurde eine Straße angegeben?
+        let straße: HTMLInputElement = <HTMLInputElement>document.getElementById("straße");
+        if (straße.validity.valid == false) {
+            straße.style.backgroundColor = "red";
+            validate.push("Street\n");
+        }
+        else {
+            straße.style.backgroundColor = "green";
+        }
+
+        //Wurde eine Postleitzahl angegeben?
+        let postleitzahl: HTMLInputElement = <HTMLInputElement>document.getElementById("postleitzahl");
+        if (postleitzahl.validity.valid == false) {
+            postleitzahl.style.backgroundColor = "red";
+            validate.push("Post Code\n");
+        }
+        else {
+            postleitzahl.style.backgroundColor = "green";
+        }
+
+        //Wurde eine Stadt angegeben?
+        let stadt: HTMLInputElement = <HTMLInputElement>document.getElementById("stadt");
+        if (stadt.validity.valid == false) {
+            stadt.style.backgroundColor = "red";
+            validate.push("City\n");
+        }
+        else {
+            stadt.style.backgroundColor = "green";
+        }
+
+        //Wurde eine Email angegeben?
+        let mail: HTMLInputElement = <HTMLInputElement>document.getElementById("mail");
+        if (mail.validity.valid == false) {
+            mail.style.backgroundColor = "red";
+            validate.push("Email\n");
+        }
+        else {
+            mail.style.backgroundColor = "green";
+        }
+
+        if (validate.length > 1) {
+            for (let i: number = 0; i < validate.length; i++)
+            validate.push
+            alert(validate.join(""));
+        }
+        else {
+            alert("Dein Eis ist unterwegs!");
+        }
+
     }
 }

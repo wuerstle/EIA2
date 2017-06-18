@@ -34,12 +34,12 @@
 	
 	<fieldset id="datas">
 		<legend>Your DATAS here</legend>
-		<input type="name" name="Name" placeholder="Name" /> 
-		<input type="name" name="Firstname" placeholder="Firstmame" />
-		<input type="text" name="Street" placeholder="Street" /> 
-		<input type="text" name="Post Code" placeholder="Post Code" />
-		<input type="text" name="City" placeholder="City" /> 
-		<input type="email" name="Email" placeholder="E-Mail"/> 
+		<input type="text" name="Name" placeholder="Name" required id="nachname" /> 
+		<input type="text" name="Firstname" placeholder="Firstmame" required id="vorname" />
+		<input type="text" name="Street" placeholder="Street" required id="straße"/> 
+		<input type="text" name="Post Code" placeholder="Post Code" required id="postleitzahl" />
+		<input type="text" name="City" placeholder="City"  required id="stadt"/> 
+		<input type="email" name="Email" placeholder="E-Mail" required id="mail"/> 
 	</fieldset>
 	
 	<fieldset id="radiobutton">
@@ -51,6 +51,7 @@
 		<fieldset id="shoppingbag">
 			<legend> SHOPPING BAG </legend>
 			<br>
+			<p id="summe">SUMME:</p>
 		</fieldset>
 	</aside>
 	<button id="send" type="button" name="Button">SEND</button>

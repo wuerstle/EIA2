@@ -1,7 +1,7 @@
 //Aufgabe: Nr. 9 Form Elements
 //Name: Lisa Würstle
 //Matrikel: 254072
-//Datum: 02.06.2017
+//Datum: 18.06.2017
 //Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 //mit Hilfe von Saschas Code aus dem Tutorium
 var A9_FormElements;
@@ -21,7 +21,8 @@ var A9_FormElements;
     var inputToppings = [];
     //FieldSet in dem alle Inputs angeordnet werden
     var fieldSet;
-    //Kugel Eis: 2 Euro, Toppings: aufs Haus, Boxes: 1 Euro, Versand: 3 Euro
+    var order;
+    //Kugel Eis: 2 Euro, Toppings: 0.5 Euro, Boxes: 1 Euro, Versand: 3 Euro
     function init(_event) {
         fieldSet = document.getElementsByTagName("fieldset")[0]; //FieldSet 1
         createFlavour();
@@ -37,6 +38,8 @@ var A9_FormElements;
         fieldSet.addEventListener("change", handleChange); //EventListener Delivery
         fieldSet = document.getElementsByTagName("fieldset")[5]; //Fieldset 6
         fieldSet.addEventListener("change", handleChange);
+        order = document.getElementById("send"); //Send Button
+        order.addEventListener("click", clickButton);
     }
     function createFlavour() {
         //erstellt pro Eissorte einen Input
@@ -144,7 +147,96 @@ var A9_FormElements;
         console.log(sum); //gib das Ergenbis auf der Konsole aus
     }
     function clickButton() {
-        //Funktion zur Validierung
+        var validate = ["Something wrong: \n"];
+        var a = 0;
+        var b = 0;
+        var c = 0;
+        //Wurde eine Sorte gewählt?
+        for (var i = 0; i < inputFlavour.length; i++) {
+            if (parseInt(inputFlavour[i].value) > 0)
+                a += 1;
+        }
+        if (a == 0) {
+            validate.push("Which Flavour?\n");
+        }
+        //Wurde eine Box ausgewählt?
+        for (var i = 0; i < inputBoxes.length; i++) {
+            if (inputBoxes[i].checked)
+                b += 1;
+        }
+        if (b == 0) {
+            validate.push("Waffle, Cup, Grab Bag, or Wonder Waffle?\n");
+        }
+        //Wurde eine Lieferoption gewählt?
+        for (var i = 0; i < inputDelivery.length; i++) {
+            if (inputDelivery[i].checked)
+                c += 1;
+        }
+        if (c == 0) {
+            validate.push("Express, Standard or Premium?");
+        }
+        //Wurde ein Nachname angegeben?
+        var nachname = document.getElementById("nachname");
+        if (nachname.validity.valid == false) {
+            nachname.style.backgroundColor = "red";
+            validate.push("Name\n");
+        }
+        else {
+            nachname.style.backgroundColor = "green";
+        }
+        //Wurde ein Vorname angegeben?
+        var vorname = document.getElementById("vorname");
+        if (vorname.validity.valid == false) {
+            vorname.style.backgroundColor = "red";
+            validate.push("Firstname\n");
+        }
+        else {
+            vorname.style.backgroundColor = "green";
+        }
+        //Wurde eine Straße angegeben?
+        var straße = document.getElementById("straße");
+        if (straße.validity.valid == false) {
+            straße.style.backgroundColor = "red";
+            validate.push("Street\n");
+        }
+        else {
+            straße.style.backgroundColor = "green";
+        }
+        //Wurde eine Postleitzahl angegeben?
+        var postleitzahl = document.getElementById("postleitzahl");
+        if (postleitzahl.validity.valid == false) {
+            postleitzahl.style.backgroundColor = "red";
+            validate.push("Post Code\n");
+        }
+        else {
+            postleitzahl.style.backgroundColor = "green";
+        }
+        //Wurde eine Stadt angegeben?
+        var stadt = document.getElementById("stadt");
+        if (stadt.validity.valid == false) {
+            stadt.style.backgroundColor = "red";
+            validate.push("City\n");
+        }
+        else {
+            stadt.style.backgroundColor = "green";
+        }
+        //Wurde eine Email angegeben?
+        var mail = document.getElementById("mail");
+        if (mail.validity.valid == false) {
+            mail.style.backgroundColor = "red";
+            validate.push("Email\n");
+        }
+        else {
+            mail.style.backgroundColor = "green";
+        }
+        if (validate.length > 1) {
+            for (var i = 0; i < validate.length; i++)
+                validate.push;
+            alert(validate.join(""));
+        }
+        else {
+            alert("Dein Eis ist unterwegs!");
+        }
     }
 })(A9_FormElements || (A9_FormElements = {}));
 //# sourceMappingURL=aufgabe_9.js.map
