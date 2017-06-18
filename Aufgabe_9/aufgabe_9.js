@@ -84,7 +84,7 @@ var A9_FormElements;
         label.innerText = _boxes;
         label.appendChild(input);
         input.type = "radio"; //Art des Inputs
-        input.name = "RadioBoxes";
+        input.name = "RadioBoxes2";
         input.value = "boxes";
         input.id = "radiobutton1";
         fieldSet.appendChild(label);
@@ -92,22 +92,23 @@ var A9_FormElements;
     }
     function handleChange(_event) {
         var sum = 0;
+        fieldSet.innerHTML = "";
         for (var i = 0; i < inputFlavour.length; i++) {
             sum += parseInt(inputFlavour[i].value);
             if (parseInt(inputFlavour[i].value) > 0) {
-                fieldSet.innerText += flavours[i] + " " + (parseInt(inputFlavour[i].value) * 2) + "€" + "\n";
+                fieldSet.innerHTML += flavours[i] + " " + (parseInt(inputFlavour[i].value) * 2) + "€" + "\n";
             }
         }
         for (var i = 0; i < inputBoxes.length; i++) {
             if (inputBoxes[i].checked) {
                 sum += 1;
-                fieldSet.innerText += boxes[i] + " 1€" + "\n";
+                fieldSet.innerHTML += boxes[i] + " 1€" + "\n";
             }
         }
         for (var i = 0; i < inputDelivery.length; i++) {
             if (inputDelivery[i].checked) {
                 sum += 3;
-                fieldSet.innerText += delivery[i] + " 3€" + "\n";
+                fieldSet.innerHTML += delivery[i] + " 3€" + "\n";
             }
         }
         console.log(sum); //gib das Ergenbis auf der Konsole aus
