@@ -270,7 +270,7 @@ namespace A9_FormElements {
 
         if (validate.length > 1) {
             for (let i: number = 0; i < validate.length; i++)
-            validate.push
+            validate.push;
             alert(validate.join(""));
         }
         else {
