@@ -78,6 +78,7 @@ var A10_ClientServer;
         input.name = "RadioBoxes";
         input.value = "boxes";
         input.id = "radiobutton1";
+        input.required = true;
         fieldSet.appendChild(label);
         inputBoxes.push(input);
     }
@@ -96,6 +97,7 @@ var A10_ClientServer;
         input.name = "RadioBoxes2";
         input.value = "boxes";
         input.id = "radiobutton1";
+        input.required = true;
         fieldSet.appendChild(label);
         inputDelivery.push(input);
     }
