@@ -59,6 +59,3 @@ button {
 	width: 40%;
 	z-index: 2;
 }
-input:required {
-	background: #a6a6a6;
-}

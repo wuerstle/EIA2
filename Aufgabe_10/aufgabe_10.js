@@ -116,6 +116,7 @@ var A10_ClientServer;
         input.name = "Toppings";
         input.value = "toppings";
         input.id = "Checkbox";
+        input.required = true;
         fieldSet.appendChild(label);
         inputToppings.push(input);
     }
