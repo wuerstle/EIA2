@@ -1,0 +1,61 @@
+* {
+	display: block;
+	vertical-align: top
+}
+
+input[type="radio"], input[type="checkbox"], label {
+	display: inline;
+}
+label::after {
+	content:"";
+	display: block;
+}
+head {
+	display: none;
+}
+input:invalid {
+	background: #F0C060;
+}
+input:valid {
+	background: white;
+}
+input:required {
+	background: lightgrey;
+}
+fieldset {
+	width: 40%;
+	background-color: thistle;
+	margin-left: 100px;
+	margin-top: 20px;
+	z-index: 2;
+}
+svg, figure, option {
+	display: inline;
+	margin: 10px;
+	padding: 0px;
+}
+#logIn {
+	float: right;
+	margin-right: 40px;
+}
+h3 {
+	text-align: center;
+	font-family: "Barrio";
+	font-size: 1.7em;
+}
+#eislogo {
+	height: 60px;
+	width: 30px;
+	margin: 0 auto;
+	display: block;
+}
+button {
+	margin-left: 300px;
+	margin-top: 15px;
+	background-color: lightcyan;
+	z-index: 2;
+}
+#select {
+	width: 40%;
+	z-index: 2;
+}
