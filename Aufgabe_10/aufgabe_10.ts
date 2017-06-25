@@ -1,7 +1,7 @@
-//Aufgabe: Nr. 9 Form Elements
+//Aufgabe: Nr. 10 ClientServer
 //Name: Lisa Würstle
 //Matrikel: 254072
-//Datum: 18.06.2017
+//Datum: 25.06.2017
 //Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 //mit Hilfe von Saschas Code aus dem Tutorium
 
@@ -280,5 +280,24 @@ namespace A10_ClientServer {
             alert("Dein Eis ist unterwegs!");
         }
 
+        sendRequest();
     }
+    
+    function sendRequest(): void {
+        let url = document.getElementById("send").innerHTML;
+        let xhr: XMLHttpRequest = new XMLHttpRequest();
+        xhr.open("GET", "https://eia2-test.herokuapp.com/?send=" + url, true);
+        xhr.addEventListener("readystatechange", handleStateChange);
+        xhr.send();
+    }
+    
+    function handleStateChange(_event: ProgressEvent): void {
+        var xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            console.log("ready: " + xhr.readyState, " | type: " + xhr.responseType, " | status:" + xhr.status, " | text:" + xhr.statusText);
+            //console.log("response: " + xhr.response);
+            document.documentElement.style.background = "none";
+            document.body.innerHTML =  "<center>" + xhr.response + "</center>";
+        }
+}
 }
