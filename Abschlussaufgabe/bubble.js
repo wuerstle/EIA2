@@ -1,36 +1,37 @@
 var Abschlussaufgabe;
 (function (Abschlussaufgabe) {
     var Bubble = (function () {
-        function Bubble(_x, _y) {
+        function Bubble(_x, _y, _color) {
             this.x = _x;
             this.y = _y;
-            this.size = Math.random() * 4 + 2; //random bubble size
+            this.radius = Math.random() * (5 - 5) + 5;
+            this.evil = Math.round(Math.random()) == 1;
         }
-        Bubble.prototype.update = function () {
-            this.move();
-            this.drawBubble();
-        };
-        Bubble.prototype.drawBubble = function () {
-            Abschlussaufgabe.crc2.fillStyle = "white";
-            Abschlussaufgabe.crc2.strokeStyle = "lightblue";
-            Abschlussaufgabe.crc2.beginPath();
-            Abschlussaufgabe.crc2.arc(this.x, this.y, 2, 0, 2 * Math.PI);
-            Abschlussaufgabe.crc2.closePath();
-            Abschlussaufgabe.crc2.fill();
-            Abschlussaufgabe.crc2.stroke();
+        Bubble.prototype.draw = function () {
+            Abschlussaufgabe.context.strokeStyle = "#00ffff";
+            Abschlussaufgabe.context.beginPath();
+            Abschlussaufgabe.context.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+            Abschlussaufgabe.context.closePath();
+            Abschlussaufgabe.context.fill();
+            Abschlussaufgabe.context.stroke();
         };
         Bubble.prototype.move = function () {
-            this.x += Math.random() * -5 - 1;
-            this.y += Math.random() * -10 - 3;
-            if (this.x < 0) {
-                this.x = Abschlussaufgabe.crc2.canvas.width;
+            if (this.evil) {
+                this.y--;
+                if (this.y + this.radius <= 0) {
+                    this.y = Abschlussaufgabe.context.canvas.height + this.radius;
+                }
             }
-            if (this.x >= Abschlussaufgabe.crc2.canvas.width) {
-                this.x = 0;
+            else {
+                this.y++;
+                if (this.y - this.radius >= Abschlussaufgabe.context.canvas.height) {
+                    this.y = this.radius;
+                }
             }
-            if (this.y < 0) {
-                this.y = Abschlussaufgabe.crc2.canvas.height;
-            }
+        };
+        Bubble.prototype.update = function () {
+            this.move();
+            this.draw();
         };
         return Bubble;
     }());

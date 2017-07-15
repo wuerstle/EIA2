@@ -3,45 +3,43 @@ namespace Abschlussaufgabe {
     export class Bubble {
         x: number;
         y: number;
-        size: number;
+        radius: number;
+        evil: boolean;
 
-        constructor(_x: number, _y: number) {
+        constructor(_x: number, _y: number, _color: string) {
             this.x = _x;
             this.y = _y;
-            this.size = Math.random() * 4 + 2; //random bubble size
+            this.radius = Math.random() * (5 - 5) + 5;
+            this.evil = Math.round(Math.random()) == 1;
         }
+
+        draw(): void {
+            context.strokeStyle = "#00ffff";
+            context.beginPath();
+            context.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+            context.closePath();
+            context.fill();
+            context.stroke();
+        }
+
+        move(): void {
+            if (this.evil) {
+                this.y--;
+                if (this.y + this.radius <= 0) {
+                    this.y = context.canvas.height + this.radius;
+                } 
+            } else {
+                this.y++;
+                if (this.y - this.radius >= context.canvas.height) {
+                    this.y = this.radius;
+                } 
+            }                        
+        } 
 
         update(): void {
             this.move();
-            this.drawBubble();
+            this.draw();
         }
 
-        drawBubble(): void {
-            crc2.fillStyle = "white";
-            crc2.strokeStyle = "lightblue";
-            crc2.beginPath();
-            crc2.arc(this.x, this.y, 2, 0, 2 * Math.PI);
-            crc2.closePath();
-            crc2.fill();
-            crc2.stroke();
-        }
-        
-        move(): void {
-            this.x += Math.random() * -5 - 1;
-            this.y += Math.random() * -10 - 3;
-
-            if (this.x < 0) {
-                this.x = crc2.canvas.width;
-            }
-            if (this.x >= crc2.canvas.width) {
-                this.x = 0;
-            }
-
-            if (this.y < 0) {
-                this.y = crc2.canvas.height;
-            }
-
-            
-        }
     }
 }
