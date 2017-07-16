@@ -22,7 +22,6 @@ namespace Abschlussaufgabe {
         context.fillStyle = "#E0FFFF";
         context.fillRect(0, 0, context.canvas.width, context.canvas.height);
         
-
         //Loop for bubbles
         for (let i: number = 0; i < 20; i++) {
             new Bubble(Math.random() * canvas.width, Math.random() * canvas.height, "#bfcf00").drawBubble();

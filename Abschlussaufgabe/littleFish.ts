@@ -8,7 +8,7 @@ namespace Abschlussaufgabe {
         }
         
         drawLittleFish(): void {
-            context.fillStyle = "#BDB76B";
+            context.fillStyle = "#00BFFF";
             context.beginPath();
             context.arc(this.x + 24, this.y + 24, 15, 0, 2 * Math.PI);
             context.closePath();

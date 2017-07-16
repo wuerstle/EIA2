@@ -1,31 +1,41 @@
 html {
-	background-color: black;
+	background-color: #E0FFFF;
 }
 
 canvas {
-	border: 1px solid black;
 	display: block;
 	margin: 0 auto;
 	position: relative;
 	width: 90%;
+	top: 2em;
 }
 
 h2 {
 	text-align: center;
 	font-family: 'Megrim';
 	letter-spacing: 0.5em;
-	color: #E0FFFF;
+	color: black;
 }
 
-@media screen and (min-width: 570px) {
+#description {
+	color: black;
+	font-family: 'PT Sans';
+	position: relative;
+	text-align: center;
+	top: 1em;
+}
+
+
+
+@media screen and (min-width: 750px) {
 	canvas {
-	width: 85%;
+		width: 75%;
 	}
+
 }
 
 @media screen and (min-width: 1024px) {
 	canvas {
-	width: 70%;
+		width: 80%;
 	}
 }
-

@@ -13,7 +13,7 @@ var Abschlussaufgabe;
             this.y = _y;
         }
         LittleFish.prototype.drawLittleFish = function () {
-            Abschlussaufgabe.context.fillStyle = "#BDB76B";
+            Abschlussaufgabe.context.fillStyle = "#00BFFF";
             Abschlussaufgabe.context.beginPath();
             Abschlussaufgabe.context.arc(this.x + 24, this.y + 24, 15, 0, 2 * Math.PI);
             Abschlussaufgabe.context.closePath();
