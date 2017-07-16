@@ -1,0 +1,86 @@
+html {
+	font-size: 1em;
+	line-height: 1.7em;
+	background-color: white;
+	font-family: 'Roboto Condensed', sans-serif;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+h3 {
+	position: fixed;
+	float: left;
+	left: 1em;
+	top: 0.1em;
+}
+
+#lupe { 
+    font-size: 1.5em; /* This controls the size. */
+    display: inline-block; 
+    width: 0.4em; 
+    height: 0.4em; 
+    border: 0.1em solid grey; 
+    position: relative; 
+    border-radius: 0.35em; 
+    float: right;
+    right: 3em;
+    top: 0.2em;
+} 
+ 
+#lupe::before { 
+    content: ""; 
+    display: inline-block; 
+    position: absolute; 
+    right: -0.25em; 
+    bottom: -0.1em; 
+    border-width: 0; 
+    background: grey; 
+    width: 0.35em; 
+    height: 0.08em; 
+    float: right;
+    -webkit-transform: rotate(45deg); 
+    -moz-transform: rotate(45deg); 
+    -ms-transform: rotate(45deg); 
+    -o-transform: rotate(45deg); 
+} 
+
+#hamburger_menu {
+	cursor: pointer;
+	padding: 15px;
+	position: fixed;
+	width: 5%;
+	clear: left;
+	float: right;
+	right: 1em;
+	top: 0.7em;
+	z-index: 100000;
+}
+
+/* Linien des Hamburger Icons */
+.linie {
+	border-bottom: 2px solid grey;
+	width: 20px;
+	margin-bottom: 3px;
+}
+
+.linie:last-child {
+	margin-bottom: 0;
+}
+
+h2 {
+	font-family: 'Amatic SC';
+	position: relative;
+	text-align: center;
+	top: 48px;
+	z-index: 2
+}
+
+#headline {
+	background-color: #aFEEEE;
+	position: relative;
+	top: 3em;
+}

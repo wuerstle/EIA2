@@ -1,0 +1,136 @@
+html {
+	font-size: 1em;
+	line-height: 1.7em;
+	background-color: white;
+	font-family: 'Roboto Condensed', sans-serif;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+h3 {
+	position: fixed;
+	float: left;
+	left: 1em;
+	top: -12px;
+	font-family: "Amatic SC";
+	font-size: 1.7em;
+	color: #f06d64;
+}
+
+#hamburger_menu {
+	cursor: pointer;
+	padding: 15px;
+	position: fixed;
+	width: 5%;
+	clear: left;
+	float: right;
+	right: 1em;
+	top: 0.5em;
+	z-index: 100000;
+}
+
+/* Linien des Hamburger Icons */
+.linie {
+	border-bottom: 2px solid grey;
+	width: 20px;
+	margin-bottom: 3px;
+}
+
+.linie:last-child {
+	margin-bottom: 0;
+}
+
+h2 {
+	font-family: 'Amatic SC';
+	position: relative;
+	text-align: center;
+	top: 65px;
+	z-index: 2;
+	letter-spacing: 0.3em;
+	font-weight: 700;
+}
+
+#headline {
+	position: relative;
+	top: 3em;
+}
+
+img {
+	display: block;
+	margin: 0 auto;
+	position: relative;
+	width: 50%;
+	height: 180px;
+	top: 57px;
+	z-index: 1;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 50%;
+}
+
+#population {
+	border-bottom: 3px solid steelblue;
+	text-align: center;
+	position: relative;
+	top: 110px;
+	letter-spacing: 0.3em;
+	width: 50%;
+	margin: 0 auto;
+}
+
+#population:hover {
+	height: 70px;
+}
+
+#area {
+	border-bottom: 3px solid steelblue;
+	text-align: center;
+	position: relative;
+	top: 140px;
+	letter-spacing: 0.3em;
+	width: 50%;
+	margin: 0 auto;
+}
+
+#area:hover {
+	height: 70px;
+}
+
+#language {
+	border-bottom: 3px solid steelblue;
+	text-align: center;
+	position: relative;
+	top: 170px;
+	letter-spacing: 0.3em;
+	width: 50%;
+	margin: 0 auto;
+}
+
+#language:hover {
+	height: 70px;
+}
+
+#peninsula {
+	background-color: peachpuff;
+	text-align: center;
+	position: relative;
+	top: 200px;
+	letter-spacing: 0.3em;
+	width: 50%;
+	margin: 0 auto;
+}
+
+#peninsula:hover {
+	height: 70px;
+}
+
+#line {
+	height: 1px;
+	background-color: grey;
+	position: relative;
+	top: 55px;
+}

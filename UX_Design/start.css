@@ -1,0 +1,134 @@
+#hamburger_menu {
+	cursor: pointer;
+	padding: 15px;
+	position: fixed;
+	width: 5%;
+	clear: left;
+	float: right;
+	right: 1em;
+	top: 0.5em;
+	z-index: 100000;
+}
+
+/* Linien des Hamburger Icons */
+.linie {
+	border-bottom: 2px solid black;
+	width: 20px;
+	margin-bottom: 3px;
+}
+
+.linie:last-child {
+	margin-bottom: 0;
+}
+
+#normal_menu {
+	display: none;
+	position: fixed;
+	top: 2.8em;
+	margin: 0 auto;
+	padding-top: 1%;
+	padding-bottom: 1%;
+	padding-right: 5%;
+	float: right;
+	text-align: right;
+	width: 80%;
+	height: 100px;
+	z-index: 10000;
+	font-family: 'Roboto Condensed', sans-serif;
+	letter-spacing: 0.2em;
+	background-color: white;
+	line-height: 1.3em;
+}
+
+a {
+	text-decoration: none;
+	color: #000000;
+}
+
+li {
+	list-style: none;
+	color: #000000;
+}
+
+.littleBox {
+	position: relative;
+	background-color: #f08b80;
+	margin: 7px;
+	padding: 6.5px;
+	color: white;
+	text-align: center;
+	width: 120px;
+	height: 20px;
+	float: left;
+	font-family: 'Roboto Condensed', sans-serif;
+	letter-spacing: 0.2em;
+}
+
+#hashtag1 {
+	margin-left: 15px;
+}
+
+#hashtag2 {
+	margin-left: 50px;
+}
+
+#hashtag3 {
+	margin-left: 110px;
+}
+
+#hashtag4 {
+	margin-left: 35px;
+}
+
+#hashtag6 {
+	margin-left: 110px;
+}
+
+#hashtag7 {
+	margin-left: 15px;
+}
+
+#hashtag8 {
+	margin-left: 50px;
+}
+
+.Box {
+	position: relative;
+	border: 1px solid #D2D2D2;
+	margin: 7px;
+	padding: 6.5px;
+	color: black;
+	background-color: white;
+	text-align: center;
+	width: 90px;
+	height: 90px;
+	float: left;
+	top: 40px;
+}
+
+main {
+	margin-top: 50px;
+}
+
+#line {
+	height: 1px;
+	background-color: grey;
+	position: relative;
+	top: 40px;
+}
+
+.Eltern {
+	position: relative;
+	top: 15em;
+	border: 1px solid black;
+	height: 200px;
+}
+
+h5 {
+	top: 60px;
+	position: relative;
+	text-align: center;
+	clear: left;
+	font-family: 'Roboto Condensed', sans-serif;
+	letter-spacing: 0.2em;
+}
