@@ -95,7 +95,7 @@ namespace L8_Inheritance {
             let a: Bee = allBees[i];
             a.update();
         }
-        window.setTimeout(animate, 20); //Time Out 20
+        window.setTimeout(animate, 10); //Time Out 20
     }
 
     //hinzufügen einer weiteren Biene

@@ -82,7 +82,7 @@ var L8_Inheritance;
             var a = allBees[i];
             a.update();
         }
-        window.setTimeout(animate, 20); //Time Out 20
+        window.setTimeout(animate, 10); //Time Out 20
     }
     //hinzufügen einer weiteren Biene
     function addBee() {
