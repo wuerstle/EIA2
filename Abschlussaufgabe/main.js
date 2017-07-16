@@ -4,6 +4,7 @@ var Abschlussaufgabe;
     var imgData;
     //click add 10 bubbles
     var click = 10;
+    var z = 0;
     //Bubbles Class
     var bubbles = [];
     //Animal Class with Subclasses for StarFish and LittleFish
@@ -21,7 +22,7 @@ var Abschlussaufgabe;
             new Abschlussaufgabe.Bubble(Math.random() * canvas.width, Math.random() * canvas.height, "#bfcf00").drawBubble();
         }
         //StarFish and LittleFish random position 
-        for (var z = 0; z < 12; z++) {
+        for (var z_1 = 0; z_1 < 12; z_1++) {
             var n = Math.floor((Math.random() * 3) + 0);
             if (n == 0) {
                 var f1 = new Abschlussaufgabe.StarFish(x, y);

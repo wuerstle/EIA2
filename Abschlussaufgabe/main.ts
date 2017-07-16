@@ -5,6 +5,7 @@ namespace Abschlussaufgabe {
     let imgData: ImageData;
     //click add 10 bubbles
     let click: number = 10;
+    let z: number = 0;
 
     //Bubbles Class
     let bubbles: Bubble[] = [];
@@ -20,12 +21,13 @@ namespace Abschlussaufgabe {
         //background canvas
         context.fillStyle = "#E0FFFF";
         context.fillRect(0, 0, context.canvas.width, context.canvas.height);
+        
 
         //Loop for bubbles
         for (let i: number = 0; i < 20; i++) {
             new Bubble(Math.random() * canvas.width, Math.random() * canvas.height, "#bfcf00").drawBubble();
         }
-        
+
         //StarFish and LittleFish random position 
         for (let z: number = 0; z < 12; z++) {
             let n: number = Math.floor((Math.random() * 3) + 0);
@@ -41,6 +43,7 @@ namespace Abschlussaufgabe {
             }
             animals.push(new Animal(x, y));
         }
+        
 
         //save background
         imgData = context.getImageData(0, 0, canvas.width, canvas.height);
@@ -55,7 +58,7 @@ namespace Abschlussaufgabe {
 
     function animate(): void {
         context.putImageData(imgData, 0, 0);
-
+        
         updateBubbles();
 
         //Timeout

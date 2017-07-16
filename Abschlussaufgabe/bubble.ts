@@ -23,7 +23,7 @@ namespace Abschlussaufgabe {
             context.stroke();
         }
 
-        move(): void {
+        moveBubble(): void {
             if (this.evil) {
                 this.y--;
                 if (this.y + this.radius <= 0) {
@@ -38,7 +38,7 @@ namespace Abschlussaufgabe {
         } 
 
         update(): void {
-            this.move();
+            this.moveBubble();
             this.drawBubble();
         }
 

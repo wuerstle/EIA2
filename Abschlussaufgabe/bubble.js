@@ -16,7 +16,7 @@ var Abschlussaufgabe;
             Abschlussaufgabe.context.fill();
             Abschlussaufgabe.context.stroke();
         };
-        Bubble.prototype.move = function () {
+        Bubble.prototype.moveBubble = function () {
             if (this.evil) {
                 this.y--;
                 if (this.y + this.radius <= 0) {
@@ -31,7 +31,7 @@ var Abschlussaufgabe;
             }
         };
         Bubble.prototype.update = function () {
-            this.move();
+            this.moveBubble();
             this.drawBubble();
         };
         return Bubble;
