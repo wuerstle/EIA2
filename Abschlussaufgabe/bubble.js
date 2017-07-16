@@ -7,8 +7,9 @@ var Abschlussaufgabe;
             this.radius = Math.random() * (5 - 5) + 5;
             this.evil = Math.round(Math.random()) == 1;
         }
-        Bubble.prototype.draw = function () {
+        Bubble.prototype.drawBubble = function () {
             Abschlussaufgabe.context.strokeStyle = "#00ffff";
+            Abschlussaufgabe.context.fillStyle = "#E0FFFF";
             Abschlussaufgabe.context.beginPath();
             Abschlussaufgabe.context.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
             Abschlussaufgabe.context.closePath();
@@ -31,7 +32,7 @@ var Abschlussaufgabe;
         };
         Bubble.prototype.update = function () {
             this.move();
-            this.draw();
+            this.drawBubble();
         };
         return Bubble;
     }());

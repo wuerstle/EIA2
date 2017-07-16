@@ -4,27 +4,50 @@ var Abschlussaufgabe;
     var imgData;
     //click add 10 bubbles
     var click = 10;
+    //Bubbles Class
     var bubbles = [];
+    //Animal Class with Subclasses for StarFish and LittleFish
+    Abschlussaufgabe.animals = [];
     function init() {
+        var x = 0;
+        var y = 0;
         var canvas = document.getElementsByTagName("canvas")[0];
         Abschlussaufgabe.context = canvas.getContext("2d");
-        //EventListener for click
-        canvas.addEventListener("click", addBubble);
-        //background Canvas
+        //background canvas
         Abschlussaufgabe.context.fillStyle = "#E0FFFF";
         Abschlussaufgabe.context.fillRect(0, 0, Abschlussaufgabe.context.canvas.width, Abschlussaufgabe.context.canvas.height);
+        //Loop for bubbles
         for (var i = 0; i < 20; i++) {
-            new Abschlussaufgabe.Bubble(Math.random() * canvas.width, Math.random() * canvas.height, "#bfcf00").draw();
+            new Abschlussaufgabe.Bubble(Math.random() * canvas.width, Math.random() * canvas.height, "#bfcf00").drawBubble();
         }
+        //StarFish and LittleFish random position 
+        for (var z = 0; z < 12; z++) {
+            var n = Math.floor((Math.random() * 3) + 0);
+            if (n == 0) {
+                var f1 = new Abschlussaufgabe.StarFish(x, y);
+                f1.setRandomPosition();
+                f1.drawStarFish();
+            }
+            else {
+                var f2 = new Abschlussaufgabe.LittleFish(x, y);
+                f2.setRandomPosition();
+                f2.drawLittleFish();
+            }
+            Abschlussaufgabe.animals.push(new Abschlussaufgabe.Animal(x, y));
+        }
+        //save background
         imgData = Abschlussaufgabe.context.getImageData(0, 0, canvas.width, canvas.height);
         createBubbles(200);
-        animate();
+        //EventListener for click
+        canvas.addEventListener("click", addBubble);
+        //Animation
+        window.setTimeout(animate, 20);
     }
     function animate() {
         Abschlussaufgabe.context.putImageData(imgData, 0, 0);
         updateBubbles();
         //Timeout
-        setTimeout(animate, 20);
+        window.setTimeout(animate, 20);
     }
     function updateBubbles() {
         for (var i = 0; i < bubbles.length; i++) {

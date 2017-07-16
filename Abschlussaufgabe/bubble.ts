@@ -13,8 +13,9 @@ namespace Abschlussaufgabe {
             this.evil = Math.round(Math.random()) == 1;
         }
 
-        draw(): void {
+        drawBubble(): void {
             context.strokeStyle = "#00ffff";
+            context.fillStyle = "#E0FFFF";
             context.beginPath();
             context.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
             context.closePath();
@@ -38,7 +39,7 @@ namespace Abschlussaufgabe {
 
         update(): void {
             this.move();
-            this.draw();
+            this.drawBubble();
         }
 
     }

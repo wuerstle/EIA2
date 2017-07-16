@@ -4,29 +4,53 @@ namespace Abschlussaufgabe {
     export let context: CanvasRenderingContext2D;
     let imgData: ImageData;
     //click add 10 bubbles
-    let click: number = 10; 
+    let click: number = 10;
 
-    let bubbles: Bubble[] = []; 
+    //Bubbles Class
+    let bubbles: Bubble[] = [];
+    //Animal Class with Subclasses for StarFish and LittleFish
+    export let animals: Animal[] = [];
 
     function init(): void {
+        let x: number = 0;
+        let y: number = 0;
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
         context = canvas.getContext("2d");
 
-        //EventListener for click
-        canvas.addEventListener("click", addBubble); 
-
-        //background Canvas
-        context.fillStyle = "#E0FFFF"; 
+        //background canvas
+        context.fillStyle = "#E0FFFF";
         context.fillRect(0, 0, context.canvas.width, context.canvas.height);
 
+        //Loop for bubbles
         for (let i: number = 0; i < 20; i++) {
-            new Bubble(Math.random() * canvas.width, Math.random() * canvas.height, "#bfcf00").draw();
+            new Bubble(Math.random() * canvas.width, Math.random() * canvas.height, "#bfcf00").drawBubble();
+        }
+        
+        //StarFish and LittleFish random position 
+        for (let z: number = 0; z < 12; z++) {
+            let n: number = Math.floor((Math.random() * 3) + 0);
+            if (n == 0) {
+                let f1: StarFish = new StarFish(x, y);
+                f1.setRandomPosition();
+                f1.drawStarFish();
+            }
+            else {
+                let f2: LittleFish = new LittleFish(x, y);
+                f2.setRandomPosition();
+                f2.drawLittleFish();
+            }
+            animals.push(new Animal(x, y));
         }
 
+        //save background
         imgData = context.getImageData(0, 0, canvas.width, canvas.height);
         createBubbles(200);
 
-        animate();
+        //EventListener for click
+        canvas.addEventListener("click", addBubble);
+
+        //Animation
+        window.setTimeout(animate, 20);
     }
 
     function animate(): void {
@@ -35,7 +59,7 @@ namespace Abschlussaufgabe {
         updateBubbles();
 
         //Timeout
-        setTimeout(animate, 20); 
+        window.setTimeout(animate, 20);
     }
 
     function updateBubbles(): void {
@@ -65,7 +89,7 @@ namespace Abschlussaufgabe {
         let bubble: Bubble = new Bubble(_x, _y, _color);
         bubbles.push(bubble);
     }
-    
+
     function random(_min: number, _max: number): number {
         return Math.random() * (_max - _min) + _min;
     }
