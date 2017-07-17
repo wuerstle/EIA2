@@ -5,10 +5,13 @@ var Abschlussaufgabe;
     //click add 10 bubbles
     var click = 10;
     var z = 0;
+    var anzahl = 50; //50 Parasites
     //Bubbles Class
     var bubbles = [];
     //Animal Class with Subclasses for StarFish and LittleFish
     Abschlussaufgabe.animals = [];
+    //Parasite Class
+    var parasites = [];
     function init() {
         var x = 0;
         var y = 0;
@@ -39,22 +42,43 @@ var Abschlussaufgabe;
         //save background
         imgData = Abschlussaufgabe.context.getImageData(0, 0, canvas.width, canvas.height);
         createBubbles(200);
+        //Loop for Parasites
+        for (var i = 0; i < anzahl; i++) {
+            var p = new Abschlussaufgabe.Parasite(750, 225); //start
+            parasites.push(p);
+        }
         //EventListener for click
         canvas.addEventListener("click", addBubble);
-        canvas.addEventListener("click", onClick);
+        var seestern = document.getElementById("seestern");
+        seestern.addEventListener("click", showInfoSeestern);
+        var kleinerFisch = document.getElementById("kleinerfisch");
+        kleinerFisch.addEventListener("click", showInfoFisch);
+        var parasite = document.getElementById("parasite");
+        parasite.addEventListener("click", showInfoParasite);
         //Animation
         window.setTimeout(animate, 20);
     }
     function animate() {
         Abschlussaufgabe.context.putImageData(imgData, 0, 0);
+        for (var i = 0; i < parasites.length; i++) {
+            var a = parasites[i];
+            a.update();
+        }
         updateBubbles();
         //Timeout
         window.setTimeout(animate, 20);
     }
-    function onClick(_event) {
-        for (var i = 0; i < Abschlussaufgabe.StarFish.length; i++) {
-            console.log(Abschlussaufgabe.context.isPointInPath(this.x, this.y));
-        }
+    function showInfoSeestern() {
+        console.log("testSeestern");
+        document.getElementById("infoSeestern").style.display = "block";
+    }
+    function showInfoFisch() {
+        console.log("testFisch");
+        document.getElementById("infoFisch").style.display = "block";
+    }
+    function showInfoParasite() {
+        console.log("testParasite");
+        document.getElementById("infoParasite").style.display = "block";
     }
     function updateBubbles() {
         for (var i = 0; i < bubbles.length; i++) {

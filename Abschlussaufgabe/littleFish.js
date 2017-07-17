@@ -13,15 +13,15 @@ var Abschlussaufgabe;
             this.y = _y;
         }
         LittleFish.prototype.drawLittleFish = function () {
-            Abschlussaufgabe.context.fillStyle = "#E0FFFF";
+            Abschlussaufgabe.context.fillStyle = "#BDB76B";
             Abschlussaufgabe.context.beginPath();
-            Abschlussaufgabe.context.arc(this.x + 24, this.y + 24, 15, 0, 2 * Math.PI);
+            Abschlussaufgabe.context.arc(this.x + 24, this.y + 24, 20, 0, 2 * Math.PI);
             Abschlussaufgabe.context.closePath();
             Abschlussaufgabe.context.fill();
             Abschlussaufgabe.context.stroke();
             Abschlussaufgabe.context.beginPath();
-            Abschlussaufgabe.context.lineTo(this.x + 45, this.y + 15);
-            Abschlussaufgabe.context.lineTo(this.x + 45, this.y + 35);
+            Abschlussaufgabe.context.lineTo(this.x + 55, this.y + 15);
+            Abschlussaufgabe.context.lineTo(this.x + 55, this.y + 35);
             Abschlussaufgabe.context.lineTo(this.x + 35, this.y + 25);
             Abschlussaufgabe.context.closePath();
             Abschlussaufgabe.context.fill();

@@ -22,10 +22,57 @@ h1 {
 	font-family: 'Pt Sans';
 	position: relative;
 	text-align: center;
-	top: 1em;
+	top: 3em;
 }
 
+#seestern {
+	height: 100px;
+	width: 100px;
+	margin-left: 3em;
+}
 
+#kleinerfisch {
+	height: 100px;
+	width: 150px;
+	margin-left: 2em;
+}
+
+#parasite {
+	height: 100px;
+	width: 150px;
+	margin-left: 1.5em;
+}
+
+.box {
+	position: relative;
+	float: left;
+	top: 5em;
+	left: 3em;
+	margin-right: 3em;
+	height: 200px;
+	width: 200px;
+}
+
+#infoSeestern {
+	display: none;
+	color: white;
+	text-align: center;
+	font-family: 'Pt Sans';
+}
+
+#infoFisch {
+	display: none;
+	color: white;
+	text-align: center;
+	font-family: 'Pt Sans';
+}
+
+#infoParasite {
+	display: none;
+	color: white;
+	text-align: center;
+	font-family: 'Pt Sans';
+}
 
 @media screen and (min-width: 750px) {
 	canvas {

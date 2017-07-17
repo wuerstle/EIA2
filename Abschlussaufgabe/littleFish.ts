@@ -8,15 +8,15 @@ namespace Abschlussaufgabe {
         }
 
         drawLittleFish(): void {
-            context.fillStyle = "#E0FFFF";
+            context.fillStyle = "#BDB76B";
             context.beginPath();
-            context.arc(this.x + 24, this.y + 24, 15, 0, 2 * Math.PI);
+            context.arc(this.x + 24, this.y + 24, 20, 0, 2 * Math.PI);
             context.closePath();
             context.fill();
             context.stroke();
             context.beginPath();
-            context.lineTo(this.x + 45, this.y + 15);
-            context.lineTo(this.x + 45, this.y + 35);
+            context.lineTo(this.x + 55, this.y + 15);
+            context.lineTo(this.x + 55, this.y + 35);
             context.lineTo(this.x + 35, this.y + 25);
             context.closePath();
             context.fill();

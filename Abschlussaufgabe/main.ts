@@ -6,12 +6,14 @@ namespace Abschlussaufgabe {
     //click add 10 bubbles
     let click: number = 10;
     let z: number = 0;
-
+    let anzahl: number = 50; //50 Parasites
 
     //Bubbles Class
     let bubbles: Bubble[] = [];
     //Animal Class with Subclasses for StarFish and LittleFish
     export let animals: Animal[] = [];
+    //Parasite Class
+    let parasites: Parasite[] = [];
 
     function init(): void {
         let x: number = 0;
@@ -45,15 +47,27 @@ namespace Abschlussaufgabe {
             animals.push(new Animal(x, y));
         }
 
-
         //save background
         imgData = context.getImageData(0, 0, canvas.width, canvas.height);
         createBubbles(200);
 
+        //Loop for Parasites
+        for (let i: number = 0; i < anzahl; i++) {
+            let p: Parasite = new Parasite(750, 225); //start
+            parasites.push(p);
+        }
+
         //EventListener for click
         canvas.addEventListener("click", addBubble);
-        canvas.addEventListener("click", onClick);
 
+        let seestern: HTMLElement = document.getElementById("seestern");
+        seestern.addEventListener("click", showInfoSeestern);
+
+        let kleinerFisch: HTMLElement = document.getElementById("kleinerfisch");
+        kleinerFisch.addEventListener("click", showInfoFisch);
+        
+        let parasite: HTMLElement = document.getElementById("parasite");
+        parasite.addEventListener("click", showInfoParasite);
 
         //Animation
         window.setTimeout(animate, 20);
@@ -61,17 +75,30 @@ namespace Abschlussaufgabe {
 
     function animate(): void {
         context.putImageData(imgData, 0, 0);
+        for (let i: number = 0; i < parasites.length; i++) {
+            let a: Parasite = parasites[i];
+            a.update();
+        }
 
         updateBubbles();
 
         //Timeout
         window.setTimeout(animate, 20);
     }
+
+    function showInfoSeestern(): void {
+        console.log("testSeestern");
+        document.getElementById("infoSeestern").style.display = "block";
+    }
+
+    function showInfoFisch(): void {
+        console.log("testFisch");
+        document.getElementById("infoFisch").style.display = "block";
+    }
     
-    function onClick(_event: Event): void {
-        for (let i: number = 0; i < StarFish.length; i++) {
-            console.log(context.isPointInPath(this.x, this.y));
-        } 
+    function showInfoParasite(): void {
+        console.log("testParasite");
+        document.getElementById("infoParasite").style.display = "block";
     }
 
     function updateBubbles(): void {
@@ -105,6 +132,5 @@ namespace Abschlussaufgabe {
     function random(_min: number, _max: number): number {
         return Math.random() * (_max - _min) + _min;
     }
-
 
 }
