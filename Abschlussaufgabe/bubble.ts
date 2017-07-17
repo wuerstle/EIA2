@@ -15,7 +15,7 @@ namespace Abschlussaufgabe {
 
         drawBubble(): void {
             context.strokeStyle = "#00ffff";
-            context.fillStyle = "#E0FFFF";
+            context.fillStyle = "#00BFFF";
             context.beginPath();
             context.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
             context.closePath();

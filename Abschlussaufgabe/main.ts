@@ -21,7 +21,7 @@ namespace Abschlussaufgabe {
         context = canvas.getContext("2d");
 
         //background canvas
-        context.fillStyle = "#E0FFFF";
+        context.fillStyle = "#00BFFF";
         context.fillRect(0, 0, context.canvas.width, context.canvas.height);
 
         //Loop for bubbles
@@ -72,7 +72,6 @@ namespace Abschlussaufgabe {
         for (let i: number = 0; i < StarFish.length; i++) {
             console.log(context.isPointInPath(this.x, this.y));
         } 
-
     }
 
     function updateBubbles(): void {

@@ -9,7 +9,7 @@ var Abschlussaufgabe;
         }
         Bubble.prototype.drawBubble = function () {
             Abschlussaufgabe.context.strokeStyle = "#00ffff";
-            Abschlussaufgabe.context.fillStyle = "#E0FFFF";
+            Abschlussaufgabe.context.fillStyle = "#00BFFF";
             Abschlussaufgabe.context.beginPath();
             Abschlussaufgabe.context.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
             Abschlussaufgabe.context.closePath();

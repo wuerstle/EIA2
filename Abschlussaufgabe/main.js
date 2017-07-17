@@ -15,7 +15,7 @@ var Abschlussaufgabe;
         var canvas = document.getElementsByTagName("canvas")[0];
         Abschlussaufgabe.context = canvas.getContext("2d");
         //background canvas
-        Abschlussaufgabe.context.fillStyle = "#E0FFFF";
+        Abschlussaufgabe.context.fillStyle = "#00BFFF";
         Abschlussaufgabe.context.fillRect(0, 0, Abschlussaufgabe.context.canvas.width, Abschlussaufgabe.context.canvas.height);
         //Loop for bubbles
         for (var i = 0; i < 20; i++) {
