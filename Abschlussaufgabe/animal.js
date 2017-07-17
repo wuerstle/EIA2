@@ -6,6 +6,10 @@ var Abschlussaufgabe;
             this.y = _y;
             this.setRandomPosition();
         }
+        Animal.prototype.update = function () {
+            this.setRandomPosition();
+            this.drawAnimal();
+        };
         Animal.prototype.setRandomPosition = function () {
             this.x = (Math.random() * (Abschlussaufgabe.context.canvas.width - 100) + 30);
             this.y = (Math.random() * (Abschlussaufgabe.context.canvas.height - 150) + 80);

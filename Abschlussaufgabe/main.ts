@@ -2,11 +2,14 @@ namespace Abschlussaufgabe {
 
     window.addEventListener("load", init);
     export let context: CanvasRenderingContext2D;
+    
     let imgData: ImageData;
+    
     //click add 10 bubbles
     let click: number = 10;
     let z: number = 0;
-    let anzahl: number = 50; //50 Parasites
+    //50 Parasites
+    let anzahl: number = 50; 
 
     //Bubbles Class
     let bubbles: Bubble[] = [];
@@ -32,7 +35,7 @@ namespace Abschlussaufgabe {
         }
 
         //StarFish and LittleFish random position 
-        for (let z: number = 0; z < 12; z++) {
+        for (let z: number = 0; z < 15; z++) {
             let n: number = Math.floor((Math.random() * 3) + 0);
             if (n == 0) {
                 let f1: StarFish = new StarFish(x, y);
@@ -57,48 +60,82 @@ namespace Abschlussaufgabe {
             parasites.push(p);
         }
 
-        //EventListener for click
+        //EventListener for bubbles
         canvas.addEventListener("click", addBubble);
 
+        //EventListener for starFish
         let seestern: HTMLElement = document.getElementById("seestern");
         seestern.addEventListener("click", showInfoSeestern);
+        seestern.addEventListener("click", addStar);
 
+        //EventListener for littleFish
         let kleinerFisch: HTMLElement = document.getElementById("kleinerfisch");
         kleinerFisch.addEventListener("click", showInfoFisch);
-        
+        kleinerFisch.addEventListener("click", addFish);
+
+        //EventListener for parasites
         let parasite: HTMLElement = document.getElementById("parasite");
         parasite.addEventListener("click", showInfoParasite);
 
         //Animation
-        window.setTimeout(animate, 20);
+        window.setTimeout(animate, 100);
     }
 
     function animate(): void {
         context.putImageData(imgData, 0, 0);
         for (let i: number = 0; i < parasites.length; i++) {
-            let a: Parasite = parasites[i];
+            let p: Parasite = parasites[i];
+            p.update();
+        }
+
+        for (let i: number = 0; i < animals.length; i++) {
+            let a: Animal = animals[i];
             a.update();
         }
 
         updateBubbles();
 
         //Timeout
-        window.setTimeout(animate, 20);
+        window.setTimeout(animate, 100);
     }
 
     function showInfoSeestern(): void {
         console.log("testSeestern");
         document.getElementById("infoSeestern").style.display = "block";
     }
+    
+    function addStar(_event: MouseEvent): void {
+        let x: number = random(_event.offsetX - 100, _event.offsetX + 100);
+        let y: number = random(_event.offsetY - 100, _event.offsetY + 100);
+        let sf: StarFish = new StarFish(x, y);
+        sf.drawStarFish();
+    }
 
     function showInfoFisch(): void {
         console.log("testFisch");
         document.getElementById("infoFisch").style.display = "block";
     }
-    
+
+    function addFish(_event: MouseEvent): void {
+        let x: number = random(_event.offsetX - 100, _event.offsetX + 100);
+        let y: number = random(_event.offsetY - 100, _event.offsetY + 100);
+        let lf: LittleFish = new LittleFish(x, y);
+        lf.drawLittleFish();
+    }
+
+
     function showInfoParasite(): void {
         console.log("testParasite");
         document.getElementById("infoParasite").style.display = "block";
+        addParasite();
+    }
+
+    //add new parasites 
+    function addParasite(): void {
+        let para: Parasite = new Parasite(100, 425);
+        parasites.push(para);
+        z++;
+        console.log("addedParasite");
     }
 
     function updateBubbles(): void {

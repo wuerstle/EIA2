@@ -5,7 +5,8 @@ var Abschlussaufgabe;
     //click add 10 bubbles
     var click = 10;
     var z = 0;
-    var anzahl = 50; //50 Parasites
+    //50 Parasites
+    var anzahl = 50;
     //Bubbles Class
     var bubbles = [];
     //Animal Class with Subclasses for StarFish and LittleFish
@@ -25,7 +26,7 @@ var Abschlussaufgabe;
             new Abschlussaufgabe.Bubble(Math.random() * canvas.width, Math.random() * canvas.height, "#bfcf00").drawBubble();
         }
         //StarFish and LittleFish random position 
-        for (var z_1 = 0; z_1 < 12; z_1++) {
+        for (var z_1 = 0; z_1 < 15; z_1++) {
             var n = Math.floor((Math.random() * 3) + 0);
             if (n == 0) {
                 var f1 = new Abschlussaufgabe.StarFish(x, y);
@@ -47,38 +48,67 @@ var Abschlussaufgabe;
             var p = new Abschlussaufgabe.Parasite(750, 225); //start
             parasites.push(p);
         }
-        //EventListener for click
+        //EventListener for bubbles
         canvas.addEventListener("click", addBubble);
+        //EventListener for starFish
         var seestern = document.getElementById("seestern");
         seestern.addEventListener("click", showInfoSeestern);
+        seestern.addEventListener("click", addStar);
+        //EventListener for littleFish
         var kleinerFisch = document.getElementById("kleinerfisch");
         kleinerFisch.addEventListener("click", showInfoFisch);
+        kleinerFisch.addEventListener("click", addFish);
+        //EventListener for parasites
         var parasite = document.getElementById("parasite");
         parasite.addEventListener("click", showInfoParasite);
         //Animation
-        window.setTimeout(animate, 20);
+        window.setTimeout(animate, 100);
     }
     function animate() {
         Abschlussaufgabe.context.putImageData(imgData, 0, 0);
         for (var i = 0; i < parasites.length; i++) {
-            var a = parasites[i];
+            var p = parasites[i];
+            p.update();
+        }
+        for (var i = 0; i < Abschlussaufgabe.animals.length; i++) {
+            var a = Abschlussaufgabe.animals[i];
             a.update();
         }
         updateBubbles();
         //Timeout
-        window.setTimeout(animate, 20);
+        window.setTimeout(animate, 100);
     }
     function showInfoSeestern() {
         console.log("testSeestern");
         document.getElementById("infoSeestern").style.display = "block";
     }
+    function addStar(_event) {
+        var x = random(_event.offsetX - 100, _event.offsetX + 100);
+        var y = random(_event.offsetY - 100, _event.offsetY + 100);
+        var sf = new Abschlussaufgabe.StarFish(x, y);
+        sf.drawStarFish();
+    }
     function showInfoFisch() {
         console.log("testFisch");
         document.getElementById("infoFisch").style.display = "block";
     }
+    function addFish(_event) {
+        var x = random(_event.offsetX - 100, _event.offsetX + 100);
+        var y = random(_event.offsetY - 100, _event.offsetY + 100);
+        var lf = new Abschlussaufgabe.LittleFish(x, y);
+        lf.drawLittleFish();
+    }
     function showInfoParasite() {
         console.log("testParasite");
         document.getElementById("infoParasite").style.display = "block";
+        addParasite();
+    }
+    //add new parasites 
+    function addParasite() {
+        var para = new Abschlussaufgabe.Parasite(100, 425);
+        parasites.push(para);
+        z++;
+        console.log("addedParasite");
     }
     function updateBubbles() {
         for (var i = 0; i < bubbles.length; i++) {
