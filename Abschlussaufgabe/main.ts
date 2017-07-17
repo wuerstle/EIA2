@@ -7,6 +7,7 @@ namespace Abschlussaufgabe {
     let click: number = 10;
     let z: number = 0;
 
+
     //Bubbles Class
     let bubbles: Bubble[] = [];
     //Animal Class with Subclasses for StarFish and LittleFish
@@ -15,13 +16,14 @@ namespace Abschlussaufgabe {
     function init(): void {
         let x: number = 0;
         let y: number = 0;
+
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
         context = canvas.getContext("2d");
 
         //background canvas
         context.fillStyle = "#E0FFFF";
         context.fillRect(0, 0, context.canvas.width, context.canvas.height);
-        
+
         //Loop for bubbles
         for (let i: number = 0; i < 20; i++) {
             new Bubble(Math.random() * canvas.width, Math.random() * canvas.height, "#bfcf00").drawBubble();
@@ -42,7 +44,7 @@ namespace Abschlussaufgabe {
             }
             animals.push(new Animal(x, y));
         }
-        
+
 
         //save background
         imgData = context.getImageData(0, 0, canvas.width, canvas.height);
@@ -50,6 +52,8 @@ namespace Abschlussaufgabe {
 
         //EventListener for click
         canvas.addEventListener("click", addBubble);
+        canvas.addEventListener("click", onClick);
+
 
         //Animation
         window.setTimeout(animate, 20);
@@ -57,11 +61,18 @@ namespace Abschlussaufgabe {
 
     function animate(): void {
         context.putImageData(imgData, 0, 0);
-        
+
         updateBubbles();
 
         //Timeout
         window.setTimeout(animate, 20);
+    }
+    
+    function onClick(_event: Event): void {
+        for (let i: number = 0; i < StarFish.length; i++) {
+            console.log(context.isPointInPath(this.x, this.y));
+        } 
+
     }
 
     function updateBubbles(): void {
@@ -95,4 +106,6 @@ namespace Abschlussaufgabe {
     function random(_min: number, _max: number): number {
         return Math.random() * (_max - _min) + _min;
     }
+
+
 }

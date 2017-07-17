@@ -1,12 +1,12 @@
 namespace Abschlussaufgabe {
-    
-    export class LittleFish extends Animal { 
+
+    export class LittleFish extends Animal {
         constructor(_x: number, _y: number) {
             super(_x, _y);
             this.x = _x;
             this.y = _y;
         }
-        
+
         drawLittleFish(): void {
             context.fillStyle = "#00BFFF";
             context.beginPath();
@@ -25,6 +25,7 @@ namespace Abschlussaufgabe {
             context.arc(this.x + 20, this.y + 20, 2, 0, 2 * Math.PI);
             context.closePath();
             context.fill();
+
         }
     }
 }

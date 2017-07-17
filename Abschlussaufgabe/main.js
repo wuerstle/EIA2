@@ -41,6 +41,7 @@ var Abschlussaufgabe;
         createBubbles(200);
         //EventListener for click
         canvas.addEventListener("click", addBubble);
+        canvas.addEventListener("click", onClick);
         //Animation
         window.setTimeout(animate, 20);
     }
@@ -49,6 +50,11 @@ var Abschlussaufgabe;
         updateBubbles();
         //Timeout
         window.setTimeout(animate, 20);
+    }
+    function onClick(_event) {
+        for (var i = 0; i < Abschlussaufgabe.StarFish.length; i++) {
+            console.log(Abschlussaufgabe.context.isPointInPath(this.x, this.y));
+        }
     }
     function updateBubbles() {
         for (var i = 0; i < bubbles.length; i++) {
