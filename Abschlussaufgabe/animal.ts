@@ -1,9 +1,11 @@
 namespace Abschlussaufgabe {
 
-    export class Animal {
+    export class Animal { //Superclass for starfish and littlefish
         x: number;
         y: number;
+        color: string; //random color for fish
 
+        //constructor
         constructor(_x: number, _y: number) {
             this.x = _x;
             this.y = _y;
@@ -11,7 +13,7 @@ namespace Abschlussaufgabe {
         }
         
         update(): void {
-            this.drawAnimal();
+            this.draw();
         }
 
         setRandomPosition(): void {
@@ -19,7 +21,8 @@ namespace Abschlussaufgabe {
             this.y = (Math.random() * (context.canvas.height - 150) + 80);
         }
 
-        drawAnimal(): void {
+        //draw method
+        draw(): void {
             //empty  
         }
 
