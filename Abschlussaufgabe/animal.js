@@ -7,7 +7,6 @@ var Abschlussaufgabe;
             this.setRandomPosition();
         }
         Animal.prototype.update = function () {
-            this.setRandomPosition();
             this.drawAnimal();
         };
         Animal.prototype.setRandomPosition = function () {

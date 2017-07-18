@@ -11,7 +11,6 @@ namespace Abschlussaufgabe {
         }
         
         update(): void {
-            this.setRandomPosition();
             this.drawAnimal();
         }
 

@@ -2,14 +2,14 @@ namespace Abschlussaufgabe {
 
     window.addEventListener("load", init);
     export let context: CanvasRenderingContext2D;
-    
+
     let imgData: ImageData;
-    
+
     //click add 10 bubbles
     let click: number = 10;
     let z: number = 0;
     //50 Parasites
-    let anzahl: number = 50; 
+    let anzahl: number = 50;
 
     //Bubbles Class
     let bubbles: Bubble[] = [];
@@ -66,12 +66,10 @@ namespace Abschlussaufgabe {
         //EventListener for starFish
         let seestern: HTMLElement = document.getElementById("seestern");
         seestern.addEventListener("click", showInfoSeestern);
-        seestern.addEventListener("click", addStar);
 
         //EventListener for littleFish
         let kleinerFisch: HTMLElement = document.getElementById("kleinerfisch");
         kleinerFisch.addEventListener("click", showInfoFisch);
-        kleinerFisch.addEventListener("click", addFish);
 
         //EventListener for parasites
         let parasite: HTMLElement = document.getElementById("parasite");
@@ -102,27 +100,30 @@ namespace Abschlussaufgabe {
     function showInfoSeestern(): void {
         console.log("testSeestern");
         document.getElementById("infoSeestern").style.display = "block";
+        addStar();
     }
-    
-    function addStar(_event: MouseEvent): void {
-        let x: number = random(_event.offsetX - 100, _event.offsetX + 100);
-        let y: number = random(_event.offsetY - 100, _event.offsetY + 100);
-        let sf: StarFish = new StarFish(x, y);
+
+    function addStar(): void {
+        let sf: StarFish = new StarFish(200, 200);
         sf.drawStarFish();
+        animals.push(sf);
+        z++;
+        console.log("addedStarfish");
     }
 
     function showInfoFisch(): void {
         console.log("testFisch");
         document.getElementById("infoFisch").style.display = "block";
+        addFish();
     }
 
-    function addFish(_event: MouseEvent): void {
-        let x: number = random(_event.offsetX - 100, _event.offsetX + 100);
-        let y: number = random(_event.offsetY - 100, _event.offsetY + 100);
-        let lf: LittleFish = new LittleFish(x, y);
+    function addFish(): void {
+        let lf: LittleFish = new LittleFish(100, 100);
         lf.drawLittleFish();
+        animals.push(lf);
+        z++;
+        console.log("addedFish");
     }
-
 
     function showInfoParasite(): void {
         console.log("testParasite");
@@ -169,5 +170,4 @@ namespace Abschlussaufgabe {
     function random(_min: number, _max: number): number {
         return Math.random() * (_max - _min) + _min;
     }
-
 }

@@ -53,11 +53,9 @@ var Abschlussaufgabe;
         //EventListener for starFish
         var seestern = document.getElementById("seestern");
         seestern.addEventListener("click", showInfoSeestern);
-        seestern.addEventListener("click", addStar);
         //EventListener for littleFish
         var kleinerFisch = document.getElementById("kleinerfisch");
         kleinerFisch.addEventListener("click", showInfoFisch);
-        kleinerFisch.addEventListener("click", addFish);
         //EventListener for parasites
         var parasite = document.getElementById("parasite");
         parasite.addEventListener("click", showInfoParasite);
@@ -81,22 +79,26 @@ var Abschlussaufgabe;
     function showInfoSeestern() {
         console.log("testSeestern");
         document.getElementById("infoSeestern").style.display = "block";
+        addStar();
     }
-    function addStar(_event) {
-        var x = random(_event.offsetX - 100, _event.offsetX + 100);
-        var y = random(_event.offsetY - 100, _event.offsetY + 100);
-        var sf = new Abschlussaufgabe.StarFish(x, y);
+    function addStar() {
+        var sf = new Abschlussaufgabe.StarFish(200, 200);
         sf.drawStarFish();
+        Abschlussaufgabe.animals.push(sf);
+        z++;
+        console.log("addedStarfish");
     }
     function showInfoFisch() {
         console.log("testFisch");
         document.getElementById("infoFisch").style.display = "block";
+        addFish();
     }
-    function addFish(_event) {
-        var x = random(_event.offsetX - 100, _event.offsetX + 100);
-        var y = random(_event.offsetY - 100, _event.offsetY + 100);
-        var lf = new Abschlussaufgabe.LittleFish(x, y);
+    function addFish() {
+        var lf = new Abschlussaufgabe.LittleFish(100, 100);
         lf.drawLittleFish();
+        Abschlussaufgabe.animals.push(lf);
+        z++;
+        console.log("addedFish");
     }
     function showInfoParasite() {
         console.log("testParasite");
