@@ -4,8 +4,7 @@ namespace Abschlussaufgabe {
         
         constructor(_x: number, _y: number) {
             super(_x, _y);
-            this.x = _x;
-            this.y = _y;
+            this.setRandomPosition();
             this.color = "hsl(" + Math.random() * 360 + ", 100%, 50%)"; //random Color
             
         }

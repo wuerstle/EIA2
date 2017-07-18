@@ -3,8 +3,6 @@ var Abschlussaufgabe;
     var Animal = (function () {
         //constructor
         function Animal(_x, _y) {
-            this.x = _x;
-            this.y = _y;
             this.setRandomPosition();
         }
         Animal.prototype.update = function () {
