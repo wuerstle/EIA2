@@ -81,7 +81,7 @@ var Abschlussaufgabe;
         addStar();
     }
     function addStar() {
-        var sf = new Abschlussaufgabe.StarFish(50, 300);
+        var sf = new Abschlussaufgabe.StarFish(this.x, this.y);
         sf.draw();
         Abschlussaufgabe.animals.push(sf);
         z++;
@@ -93,7 +93,7 @@ var Abschlussaufgabe;
         addFish();
     }
     function addFish() {
-        var lf = new Abschlussaufgabe.LittleFish(100, 100);
+        var lf = new Abschlussaufgabe.LittleFish(this.x, this.y);
         lf.draw();
         Abschlussaufgabe.animals.push(lf);
         z++;

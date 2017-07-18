@@ -104,7 +104,7 @@ namespace Abschlussaufgabe {
     }
 
     function addStar(): void {
-        let sf: StarFish = new StarFish(50, 300);
+        let sf: StarFish = new StarFish(this.x, this.y);
         sf.draw();
         animals.push(sf);
         z++;
@@ -118,7 +118,7 @@ namespace Abschlussaufgabe {
     }
 
     function addFish(): void {
-        let lf: LittleFish = new LittleFish(100, 100);
+        let lf: LittleFish = new LittleFish(this.x, this.y);
         lf.draw();
         animals.push(lf);
         z++;

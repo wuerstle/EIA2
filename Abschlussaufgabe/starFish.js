@@ -9,7 +9,6 @@ var Abschlussaufgabe;
         __extends(StarFish, _super);
         function StarFish(_x, _y) {
             _super.call(this, _x, _y);
-            this.setRandomPosition();
         }
         //draw method for starfish
         StarFish.prototype.draw = function () {
