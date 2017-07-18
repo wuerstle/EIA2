@@ -7,7 +7,7 @@ namespace Abschlussaufgabe {
             this.y = _y;
         }
 
-        drawAnimal(): void {
+        draw(): void {
             context.fillStyle = "orange";
             context.strokeStyle = "white";
             context.beginPath();

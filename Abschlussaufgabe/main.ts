@@ -40,14 +40,13 @@ namespace Abschlussaufgabe {
             if (n == 0) {
                 let f1: StarFish = new StarFish(x, y);
                 f1.setRandomPosition();
-                f1.drawAnimal();
+                f1.draw();
             }
             else {
                 let f2: LittleFish = new LittleFish(x, y);
                 f2.setRandomPosition();
-                f2.drawAnimal();
+                f2.draw();
             }
-            animals.push(new Animal(x, y));
         }
 
         //save background
@@ -105,7 +104,7 @@ namespace Abschlussaufgabe {
 
     function addStar(): void {
         let sf: StarFish = new StarFish(50, 300);
-        sf.drawAnimal();
+        sf.draw();
         animals.push(sf);
         z++;
         console.log("addedStarfish");
@@ -119,7 +118,7 @@ namespace Abschlussaufgabe {
 
     function addFish(): void {
         let lf: LittleFish = new LittleFish(100, 100);
-        lf.drawAnimal();
+        lf.draw();
         animals.push(lf);
         z++;
         console.log("addedFish");

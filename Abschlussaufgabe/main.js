@@ -31,14 +31,13 @@ var Abschlussaufgabe;
             if (n == 0) {
                 var f1 = new Abschlussaufgabe.StarFish(x, y);
                 f1.setRandomPosition();
-                f1.drawAnimal();
+                f1.draw();
             }
             else {
                 var f2 = new Abschlussaufgabe.LittleFish(x, y);
                 f2.setRandomPosition();
-                f2.drawAnimal();
+                f2.draw();
             }
-            Abschlussaufgabe.animals.push(new Abschlussaufgabe.Animal(x, y));
         }
         //save background
         imgData = Abschlussaufgabe.context.getImageData(0, 0, canvas.width, canvas.height);
@@ -83,7 +82,7 @@ var Abschlussaufgabe;
     }
     function addStar() {
         var sf = new Abschlussaufgabe.StarFish(50, 300);
-        sf.drawAnimal();
+        sf.draw();
         Abschlussaufgabe.animals.push(sf);
         z++;
         console.log("addedStarfish");
@@ -95,7 +94,7 @@ var Abschlussaufgabe;
     }
     function addFish() {
         var lf = new Abschlussaufgabe.LittleFish(100, 100);
-        lf.drawAnimal();
+        lf.draw();
         Abschlussaufgabe.animals.push(lf);
         z++;
         console.log("addedFish");
