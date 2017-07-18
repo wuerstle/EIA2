@@ -9,7 +9,6 @@ var Abschlussaufgabe;
         __extends(LittleFish, _super);
         function LittleFish(_x, _y) {
             _super.call(this, _x, _y);
-            this.setRandomPosition();
             this.color = "hsl(" + Math.random() * 360 + ", 100%, 50%)"; //random Color
         }
         //draw method for littlefish
