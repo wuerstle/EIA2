@@ -12,7 +12,7 @@ var Abschlussaufgabe;
             this.x = _x;
             this.y = _y;
         }
-        StarFish.prototype.drawStarFish = function () {
+        StarFish.prototype.drawAnimal = function () {
             Abschlussaufgabe.context.fillStyle = "orange";
             Abschlussaufgabe.context.strokeStyle = "white";
             Abschlussaufgabe.context.beginPath();

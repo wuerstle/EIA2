@@ -7,7 +7,7 @@ namespace Abschlussaufgabe {
             this.y = _y;
         }
 
-        drawLittleFish(): void {
+        drawAnimal(): void {
             context.fillStyle = "#BDB76B";
             context.beginPath();
             context.arc(this.x + 24, this.y + 24, 20, 0, 2 * Math.PI);

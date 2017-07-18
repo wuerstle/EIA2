@@ -31,12 +31,12 @@ var Abschlussaufgabe;
             if (n == 0) {
                 var f1 = new Abschlussaufgabe.StarFish(x, y);
                 f1.setRandomPosition();
-                f1.drawStarFish();
+                f1.drawAnimal();
             }
             else {
                 var f2 = new Abschlussaufgabe.LittleFish(x, y);
                 f2.setRandomPosition();
-                f2.drawLittleFish();
+                f2.drawAnimal();
             }
             Abschlussaufgabe.animals.push(new Abschlussaufgabe.Animal(x, y));
         }
@@ -82,8 +82,8 @@ var Abschlussaufgabe;
         addStar();
     }
     function addStar() {
-        var sf = new Abschlussaufgabe.StarFish(200, 200);
-        sf.drawStarFish();
+        var sf = new Abschlussaufgabe.StarFish(50, 300);
+        sf.drawAnimal();
         Abschlussaufgabe.animals.push(sf);
         z++;
         console.log("addedStarfish");
@@ -95,7 +95,7 @@ var Abschlussaufgabe;
     }
     function addFish() {
         var lf = new Abschlussaufgabe.LittleFish(100, 100);
-        lf.drawLittleFish();
+        lf.drawAnimal();
         Abschlussaufgabe.animals.push(lf);
         z++;
         console.log("addedFish");
