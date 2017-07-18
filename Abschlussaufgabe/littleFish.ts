@@ -1,14 +1,18 @@
 namespace Abschlussaufgabe {
 
-    export class LittleFish extends Animal {
+    export class LittleFish extends Animal { //LittleFish is Subclass from Animal
+        
         constructor(_x: number, _y: number) {
             super(_x, _y);
             this.x = _x;
             this.y = _y;
+            this.color = "hsl(" + Math.random() * 360 + ", 100%, 50%)"; //random Color
+            
         }
 
+        //draw method for littlefish
         draw(): void {
-            context.fillStyle = "#BDB76B";
+            context.fillStyle = this.color;
             context.beginPath();
             context.arc(this.x + 24, this.y + 24, 20, 0, 2 * Math.PI);
             context.closePath();

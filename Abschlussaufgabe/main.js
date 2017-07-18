@@ -1,15 +1,17 @@
 var Abschlussaufgabe;
 (function (Abschlussaufgabe) {
     window.addEventListener("load", init);
+    //variable um Hintergrund zu speichern
     var imgData;
     //click add 10 bubbles
     var click = 10;
+    //variable z für die add functions
     var z = 0;
     //50 Parasites
     var anzahl = 50;
     //Bubbles Class
     var bubbles = [];
-    //Animal Class with Subclasses for StarFish and LittleFish
+    //Animal Superclass with Subclasses for StarFish and LittleFish
     Abschlussaufgabe.animals = [];
     //Parasite Class
     var parasites = [];
@@ -25,19 +27,17 @@ var Abschlussaufgabe;
         for (var i = 0; i < 20; i++) {
             new Abschlussaufgabe.Bubble(Math.random() * canvas.width, Math.random() * canvas.height, "#bfcf00").drawBubble();
         }
-        //StarFish and LittleFish random position 
-        for (var z_1 = 0; z_1 < 15; z_1++) {
-            var n = Math.floor((Math.random() * 3) + 0);
-            if (n == 0) {
-                var f1 = new Abschlussaufgabe.StarFish(x, y);
-                f1.setRandomPosition();
-                f1.draw();
-            }
-            else {
-                var f2 = new Abschlussaufgabe.LittleFish(x, y);
-                f2.setRandomPosition();
-                f2.draw();
-            }
+        //loop for starfish
+        for (var i = 0; i < 10; i++) {
+            var f1 = new Abschlussaufgabe.StarFish(x, y);
+            f1.setRandomPosition();
+            f1.draw();
+        }
+        //loop for fish
+        for (var i = 0; i < 10; i++) {
+            var f2 = new Abschlussaufgabe.LittleFish(x, y);
+            f2.setRandomPosition();
+            f2.draw();
         }
         //save background
         imgData = Abschlussaufgabe.context.getImageData(0, 0, canvas.width, canvas.height);
@@ -111,11 +111,13 @@ var Abschlussaufgabe;
         z++;
         console.log("addedParasite");
     }
+    //update bubbles
     function updateBubbles() {
         for (var i = 0; i < bubbles.length; i++) {
             bubbles[i].update();
         }
     }
+    //create bubbles
     function createBubbles(_amount) {
         for (var i = 0; i < _amount; i++) {
             var x = random(0, Abschlussaufgabe.context.canvas.width);
@@ -131,10 +133,12 @@ var Abschlussaufgabe;
             createBubble(x, y, "#ffffff");
         }
     }
+    //create one bubble
     function createBubble(_x, _y, _color) {
         var bubble = new Abschlussaufgabe.Bubble(_x, _y, _color);
         bubbles.push(bubble);
     }
+    //random position
     function random(_min, _max) {
         return Math.random() * (_max - _min) + _min;
     }

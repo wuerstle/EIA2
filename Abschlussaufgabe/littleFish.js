@@ -11,9 +11,11 @@ var Abschlussaufgabe;
             _super.call(this, _x, _y);
             this.x = _x;
             this.y = _y;
+            this.color = "hsl(" + Math.random() * 360 + ", 100%, 50%)"; //random Color
         }
+        //draw method for littlefish
         LittleFish.prototype.draw = function () {
-            Abschlussaufgabe.context.fillStyle = "#BDB76B";
+            Abschlussaufgabe.context.fillStyle = this.color;
             Abschlussaufgabe.context.beginPath();
             Abschlussaufgabe.context.arc(this.x + 24, this.y + 24, 20, 0, 2 * Math.PI);
             Abschlussaufgabe.context.closePath();

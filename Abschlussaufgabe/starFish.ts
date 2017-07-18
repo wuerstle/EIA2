@@ -1,12 +1,14 @@
 namespace Abschlussaufgabe {
 
-    export class StarFish extends Animal { 
+    export class StarFish extends Animal { //StarFish is Subclass from Animal
+    
         constructor(_x: number, _y: number) {
             super(_x, _y);
             this.x = _x;
             this.y = _y;
         }
 
+        //draw method for starfish
         draw(): void {
             context.fillStyle = "orange";
             context.strokeStyle = "white";

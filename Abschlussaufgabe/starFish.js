@@ -12,6 +12,7 @@ var Abschlussaufgabe;
             this.x = _x;
             this.y = _y;
         }
+        //draw method for starfish
         StarFish.prototype.draw = function () {
             Abschlussaufgabe.context.fillStyle = "orange";
             Abschlussaufgabe.context.strokeStyle = "white";

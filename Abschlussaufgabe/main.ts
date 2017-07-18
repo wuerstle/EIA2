@@ -3,17 +3,19 @@ namespace Abschlussaufgabe {
     window.addEventListener("load", init);
     export let context: CanvasRenderingContext2D;
 
+    //variable um Hintergrund zu speichern
     let imgData: ImageData;
 
     //click add 10 bubbles
     let click: number = 10;
+    //variable z für die add functions
     let z: number = 0;
     //50 Parasites
     let anzahl: number = 50;
 
     //Bubbles Class
     let bubbles: Bubble[] = [];
-    //Animal Class with Subclasses for StarFish and LittleFish
+    //Animal Superclass with Subclasses for StarFish and LittleFish
     export let animals: Animal[] = [];
     //Parasite Class
     let parasites: Parasite[] = [];
@@ -33,20 +35,19 @@ namespace Abschlussaufgabe {
         for (let i: number = 0; i < 20; i++) {
             new Bubble(Math.random() * canvas.width, Math.random() * canvas.height, "#bfcf00").drawBubble();
         }
+ 
+        //loop for starfish
+        for (let i: number = 0; i < 10; i++) {
+            let f1: StarFish = new StarFish(x, y);
+            f1.setRandomPosition();
+            f1.draw();
+        }
 
-        //StarFish and LittleFish random position 
-        for (let z: number = 0; z < 15; z++) {
-            let n: number = Math.floor((Math.random() * 3) + 0);
-            if (n == 0) {
-                let f1: StarFish = new StarFish(x, y);
-                f1.setRandomPosition();
-                f1.draw();
-            }
-            else {
-                let f2: LittleFish = new LittleFish(x, y);
-                f2.setRandomPosition();
-                f2.draw();
-            }
+        //loop for fish
+        for (let i: number = 0; i < 10; i++) {
+            let f2: LittleFish = new LittleFish(x, y);
+            f2.setRandomPosition();
+            f2.draw();
         }
 
         //save background
@@ -138,12 +139,14 @@ namespace Abschlussaufgabe {
         console.log("addedParasite");
     }
 
+    //update bubbles
     function updateBubbles(): void {
         for (let i: number = 0; i < bubbles.length; i++) {
             bubbles[i].update();
         }
     }
 
+    //create bubbles
     function createBubbles(_amount: number): void {
         for (let i: number = 0; i < _amount; i++) {
             let x: number = random(0, context.canvas.width);
@@ -161,11 +164,13 @@ namespace Abschlussaufgabe {
         }
     }
 
+    //create one bubble
     function createBubble(_x: number, _y: number, _color: string): void {
         let bubble: Bubble = new Bubble(_x, _y, _color);
         bubbles.push(bubble);
     }
 
+    //random position
     function random(_min: number, _max: number): number {
         return Math.random() * (_max - _min) + _min;
     }
