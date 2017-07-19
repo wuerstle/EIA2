@@ -56,7 +56,7 @@ h1 {
 
 .box {
 	position: relative;
-	top: 5em;
+	top: 3em;
 	margin: 1em;
 	height: 250px;
 	width: 70%;
@@ -88,6 +88,38 @@ h1 {
 	font-family: 'Pt Sans';
 }
 
+#speechBubble {
+	width: 120px;
+	height: 30px;
+	background: #00BFFF;
+	position: relative;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	border: 3px solid white; text-align : center;
+	font-family: 'Pt Sans';
+	text-align: center; font-family : 'Pt Sans';
+	padding-top: 1%;
+	top: 5em;
+	left: 55%;
+	color: white;
+}
+
+#speechBubble:after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 20px solid transparent;
+	border-top-color: white;
+	border-bottom: 0;
+	border-left: 0;
+	margin-left: -5px;
+	margin-bottom: -20px;
+}
+
 @media screen and (min-width: 768px) {
 	canvas {
 		width: 80%;
@@ -95,13 +127,16 @@ h1 {
 }
 
 @media screen and (min-width: 1024px) {
+	#speechBubble {
+	left: 52%;
+	}
+	
 	.box {
 		width: 28%;
 		float: left;
 		margin-left: 1em;
 		margin-right: 1.5em;
 	}
-	
 	canvas {
 		width: 75%;
 	}

@@ -1,12 +1,12 @@
 namespace Abschlussaufgabe {
-    
+
     export class Parasite { //Class for Parasites
         x: number;
         y: number;
 
         constructor(_x: number, _y: number) {
             this.x = _x;
-            this.y = _y;   
+            this.y = _y;
         }
 
         updateParasite(): void {

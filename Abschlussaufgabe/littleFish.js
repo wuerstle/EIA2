@@ -14,6 +14,7 @@ var Abschlussaufgabe;
         //draw method for littlefish
         LittleFish.prototype.draw = function () {
             Abschlussaufgabe.context.fillStyle = this.color;
+            Abschlussaufgabe.context.strokeStyle = this.color;
             Abschlussaufgabe.context.beginPath();
             Abschlussaufgabe.context.arc(this.x + 24, this.y + 24, 20, 0, 2 * Math.PI);
             Abschlussaufgabe.context.closePath();

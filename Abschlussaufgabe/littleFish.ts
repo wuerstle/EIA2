@@ -11,6 +11,7 @@ namespace Abschlussaufgabe {
         //draw method for littlefish
         draw(): void {
             context.fillStyle = this.color;
+            context.strokeStyle = this.color;
             context.beginPath();
             context.arc(this.x + 24, this.y + 24, 20, 0, 2 * Math.PI);
             context.closePath();
