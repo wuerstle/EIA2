@@ -10,7 +10,7 @@ namespace Abschlussaufgabe {
             this.setRandomPosition();
         }
         
-        update(): void {
+        updateAnimal(): void {
             this.draw();
         }
 

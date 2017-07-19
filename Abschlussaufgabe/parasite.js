@@ -5,7 +5,7 @@ var Abschlussaufgabe;
             this.x = _x;
             this.y = _y;
         }
-        Parasite.prototype.update = function () {
+        Parasite.prototype.updateParasite = function () {
             this.moveParasite();
             this.drawParasite();
         };

@@ -29,15 +29,15 @@ var Abschlussaufgabe;
         }
         //loop for starfish
         for (var i = 0; i < 10; i++) {
-            var f1 = new Abschlussaufgabe.StarFish(x, y);
-            f1.setRandomPosition();
-            f1.draw();
+            var sf = new Abschlussaufgabe.StarFish(x, y);
+            sf.setRandomPosition();
+            sf.draw();
         }
         //loop for fish
         for (var i = 0; i < 10; i++) {
-            var f2 = new Abschlussaufgabe.LittleFish(x, y);
-            f2.setRandomPosition();
-            f2.draw();
+            var lf = new Abschlussaufgabe.LittleFish(x, y);
+            lf.setRandomPosition();
+            lf.draw();
         }
         //save background
         imgData = Abschlussaufgabe.context.getImageData(0, 0, canvas.width, canvas.height);
@@ -65,11 +65,11 @@ var Abschlussaufgabe;
         Abschlussaufgabe.context.putImageData(imgData, 0, 0);
         for (var i = 0; i < parasites.length; i++) {
             var p = parasites[i];
-            p.update();
+            p.updateParasite();
         }
         for (var i = 0; i < Abschlussaufgabe.animals.length; i++) {
             var a = Abschlussaufgabe.animals[i];
-            a.update();
+            a.updateAnimal();
         }
         updateBubbles();
         //Timeout
@@ -114,7 +114,7 @@ var Abschlussaufgabe;
     //update bubbles
     function updateBubbles() {
         for (var i = 0; i < bubbles.length; i++) {
-            bubbles[i].update();
+            bubbles[i].updateBubbles();
         }
     }
     //create bubbles

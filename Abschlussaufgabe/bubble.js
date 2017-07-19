@@ -17,20 +17,13 @@ var Abschlussaufgabe;
             Abschlussaufgabe.context.stroke();
         };
         Bubble.prototype.moveBubble = function () {
-            if (this.evil) {
-                this.y--;
-                if (this.y + this.radius <= 0) {
-                    this.y = Abschlussaufgabe.context.canvas.height + this.radius;
-                }
-            }
-            else {
-                this.y++;
-                if (this.y - this.radius >= Abschlussaufgabe.context.canvas.height) {
-                    this.y = this.radius;
-                }
+            //bubbles go up
+            this.y--;
+            if (this.y + this.radius <= 0) {
+                this.y = Abschlussaufgabe.context.canvas.height + this.radius;
             }
         };
-        Bubble.prototype.update = function () {
+        Bubble.prototype.updateBubbles = function () {
             this.moveBubble();
             this.drawBubble();
         };

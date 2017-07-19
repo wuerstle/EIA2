@@ -38,16 +38,16 @@ namespace Abschlussaufgabe {
  
         //loop for starfish
         for (let i: number = 0; i < 10; i++) {
-            let f1: StarFish = new StarFish(x, y);
-            f1.setRandomPosition();
-            f1.draw();
+            let sf: StarFish = new StarFish(x, y);
+            sf.setRandomPosition();
+            sf.draw();
         }
 
         //loop for fish
         for (let i: number = 0; i < 10; i++) {
-            let f2: LittleFish = new LittleFish(x, y);
-            f2.setRandomPosition();
-            f2.draw();
+            let lf: LittleFish = new LittleFish(x, y);
+            lf.setRandomPosition();
+            lf.draw();
         }
 
         //save background
@@ -83,12 +83,12 @@ namespace Abschlussaufgabe {
         context.putImageData(imgData, 0, 0);
         for (let i: number = 0; i < parasites.length; i++) {
             let p: Parasite = parasites[i];
-            p.update();
+            p.updateParasite();
         }
 
         for (let i: number = 0; i < animals.length; i++) {
             let a: Animal = animals[i];
-            a.update();
+            a.updateAnimal();
         }
 
         updateBubbles();
@@ -142,7 +142,7 @@ namespace Abschlussaufgabe {
     //update bubbles
     function updateBubbles(): void {
         for (let i: number = 0; i < bubbles.length; i++) {
-            bubbles[i].update();
+            bubbles[i].updateBubbles();
         }
     }
 

@@ -24,20 +24,14 @@ namespace Abschlussaufgabe {
         }
 
         moveBubble(): void {
-            if (this.evil) {
-                this.y--;
-                if (this.y + this.radius <= 0) {
-                    this.y = context.canvas.height + this.radius;
-                } 
-            } else {
-                this.y++;
-                if (this.y - this.radius >= context.canvas.height) {
-                    this.y = this.radius;
-                } 
-            }                        
-        } 
+            //bubbles go up
+            this.y--;
+            if (this.y + this.radius <= 0) {
+                this.y = context.canvas.height + this.radius;
+            }
+        }
 
-        update(): void {
+        updateBubbles(): void {
             this.moveBubble();
             this.drawBubble();
         }

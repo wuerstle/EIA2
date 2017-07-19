@@ -9,7 +9,7 @@ namespace Abschlussaufgabe {
             this.y = _y;   
         }
 
-        update(): void {
+        updateParasite(): void {
             this.moveParasite();
             this.drawParasite();
         }
