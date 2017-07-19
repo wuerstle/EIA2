@@ -114,7 +114,7 @@ var Abschlussaufgabe;
     //update bubbles
     function updateBubbles() {
         for (var i = 0; i < bubbles.length; i++) {
-            bubbles[i].updateBubbles();
+            bubbles[i].updateBubble();
         }
     }
     //create bubbles

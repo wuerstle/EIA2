@@ -142,7 +142,7 @@ namespace Abschlussaufgabe {
     //update bubbles
     function updateBubbles(): void {
         for (let i: number = 0; i < bubbles.length; i++) {
-            bubbles[i].updateBubbles();
+            bubbles[i].updateBubble();
         }
     }
 

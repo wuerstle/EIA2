@@ -23,7 +23,7 @@ var Abschlussaufgabe;
                 this.y = Abschlussaufgabe.context.canvas.height + this.radius;
             }
         };
-        Bubble.prototype.updateBubbles = function () {
+        Bubble.prototype.updateBubble = function () {
             this.moveBubble();
             this.drawBubble();
         };

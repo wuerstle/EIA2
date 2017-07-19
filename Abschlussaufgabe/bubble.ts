@@ -31,7 +31,7 @@ namespace Abschlussaufgabe {
             }
         }
 
-        updateBubbles(): void {
+        updateBubble(): void {
             this.moveBubble();
             this.drawBubble();
         }

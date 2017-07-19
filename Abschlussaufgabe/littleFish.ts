@@ -23,6 +23,7 @@ namespace Abschlussaufgabe {
             context.lineTo(this.x + 35, this.y + 25);
             context.closePath();
             context.fill();
+            context.stroke();
             context.fillStyle = "black";
             context.beginPath();
             context.arc(this.x + 20, this.y + 20, 2, 0, 2 * Math.PI);

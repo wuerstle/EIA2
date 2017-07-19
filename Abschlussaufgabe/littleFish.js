@@ -26,6 +26,7 @@ var Abschlussaufgabe;
             Abschlussaufgabe.context.lineTo(this.x + 35, this.y + 25);
             Abschlussaufgabe.context.closePath();
             Abschlussaufgabe.context.fill();
+            Abschlussaufgabe.context.stroke();
             Abschlussaufgabe.context.fillStyle = "black";
             Abschlussaufgabe.context.beginPath();
             Abschlussaufgabe.context.arc(this.x + 20, this.y + 20, 2, 0, 2 * Math.PI);
