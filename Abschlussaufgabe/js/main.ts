@@ -15,17 +15,15 @@ namespace Abschlussaufgabe {
     //variable um Hintergrund zu speichern
     let imgData: ImageData;
 
-    //click add 10 bubbles
     let click: number = 10;
-    //variable z für die add functions
     let z: number = 0;
-    //50 Parasites
-    let anzahl: number = 50;
 
     //Bubbles Class
     let bubbles: Bubble[] = [];
+    
     //Animal Superclass with Subclasses for StarFish and LittleFish
     export let animals: Animal[] = [];
+    
     //Parasite Class
     let parasites: Parasite[] = [];
 
@@ -40,9 +38,9 @@ namespace Abschlussaufgabe {
         context.fillStyle = "#00BFFF";
         context.fillRect(0, 0, context.canvas.width, context.canvas.height);
 
-        //Loop for bubbles
+        //loop for bubbles
         for (let i: number = 0; i < 20; i++) {
-            new Bubble(Math.random() * canvas.width, Math.random() * canvas.height, "#bfcf00").drawBubble();
+            new Bubble(Math.random() * canvas.width, Math.random() * canvas.height).drawBubble();
         }
  
         //loop for starfish
@@ -61,28 +59,38 @@ namespace Abschlussaufgabe {
 
         //save background
         imgData = context.getImageData(0, 0, canvas.width, canvas.height);
-        createBubbles(200);
-
+        
+        //250 bubbles on random positions
+        createBubbles(250);
+        
         //Loop for Parasites
-        for (let i: number = 0; i < anzahl; i++) {
+        for (let i: number = 0; i <= 50; i++) {
             let p: Parasite = new Parasite(750, 225); //start
             parasites.push(p);
         }
 
         //EventListener for bubbles
         canvas.addEventListener("click", addBubble);
+        //Smartphone and Tablet
+        canvas.addEventListener("touchstart", addBubble);
 
         //EventListener for starFish
-        let seestern: HTMLElement = document.getElementById("seestern");
-        seestern.addEventListener("click", showInfoSeestern);
+        let seeStern: HTMLElement = document.getElementById("seestern");
+        seeStern.addEventListener("click", showInfoSeestern);
+        //Smartphone and Tablet
+        seeStern.addEventListener("touchstart", showInfoSeestern);
 
         //EventListener for littleFish
         let kleinerFisch: HTMLElement = document.getElementById("kleinerfisch");
         kleinerFisch.addEventListener("click", showInfoFisch);
+        //Smartphone and Tablet
+        kleinerFisch.addEventListener("touchstart", showInfoFisch);
 
         //EventListener for parasites
         let parasite: HTMLElement = document.getElementById("parasite");
         parasite.addEventListener("click", showInfoParasite);
+        //Smartphone and Tablet
+        parasite.addEventListener("touchstart", showInfoParasite);
 
         //Animation
         window.setTimeout(animate, 100);
@@ -90,77 +98,35 @@ namespace Abschlussaufgabe {
 
     function animate(): void {
         context.putImageData(imgData, 0, 0);
+        
+        //animation for bubbles
+        for (let i: number = 0; i < bubbles.length; i++) {
+            let b: Bubble = bubbles[i];
+            b.updateBubble();
+        }
+        
+        //animation for animals
+        for (let i: number = 0; i < animals.length; i++) {
+            let a: Animal = animals[i];
+            a.updateAnimal();
+        }
+        
+        //animation for parasites
         for (let i: number = 0; i < parasites.length; i++) {
             let p: Parasite = parasites[i];
             p.updateParasite();
         }
 
-        for (let i: number = 0; i < animals.length; i++) {
-            let a: Animal = animals[i];
-            a.updateAnimal();
-        }
-
-        updateBubbles();
-
         //Timeout
         window.setTimeout(animate, 100);
     }
-
-    function showInfoSeestern(): void {
-        console.log("testSeestern");
-        document.getElementById("infoSeestern").style.display = "block";
-        addStar();
-    }
-
-    function addStar(): void {
-        let sf: StarFish = new StarFish(this.x, this.y);
-        sf.draw();
-        animals.push(sf);
-        z++;
-        console.log("addedStarfish");
-    }
-
-    function showInfoFisch(): void {
-        console.log("testFisch");
-        document.getElementById("infoFisch").style.display = "block";
-        addFish();
-    }
-
-    function addFish(): void {
-        let lf: LittleFish = new LittleFish(this.x, this.y);
-        lf.draw();
-        animals.push(lf);
-        z++;
-        console.log("addedFish");
-    }
-
-    function showInfoParasite(): void {
-        console.log("testParasite");
-        document.getElementById("infoParasite").style.display = "block";
-        addParasite();
-    }
-
-    //add new parasites 
-    function addParasite(): void {
-        let para: Parasite = new Parasite(100, 425);
-        parasites.push(para);
-        z++;
-        console.log("addedParasite");
-    }
-
-    //update bubbles
-    function updateBubbles(): void {
-        for (let i: number = 0; i < bubbles.length; i++) {
-            bubbles[i].updateBubble();
-        }
-    }
-
+    
     //create bubbles
     function createBubbles(_amount: number): void {
         for (let i: number = 0; i < _amount; i++) {
             let x: number = random(0, context.canvas.width);
             let y: number = random(0, context.canvas.height);
-            createBubble(x, y, "#ffffff");
+            createBubble(x, y);
         }
     }
 
@@ -169,13 +135,14 @@ namespace Abschlussaufgabe {
         for (let i: number = 0; i < click; i++) {
             let x: number = random(_event.offsetX - 100, _event.offsetX + 100);
             let y: number = random(_event.offsetY - 100, _event.offsetY + 100);
-            createBubble(x, y, "#ffffff");
+            createBubble(x, y);
         }
+        console.log("addedBubbles");
     }
 
     //create one bubble
-    function createBubble(_x: number, _y: number, _color: string): void {
-        let bubble: Bubble = new Bubble(_x, _y, _color);
+    function createBubble(_x: number, _y: number): void {
+        let bubble: Bubble = new Bubble(_x, _y);
         bubbles.push(bubble);
     }
 
@@ -183,4 +150,52 @@ namespace Abschlussaufgabe {
     function random(_min: number, _max: number): number {
         return Math.random() * (_max - _min) + _min;
     }
+
+    //information starfish
+    function showInfoSeestern(): void {
+        console.log("testSeestern");
+        document.getElementById("infoSeestern").style.display = "block";
+        addStar();
+    }
+
+    //add one starfish on random position
+    function addStar(): void {
+        let sf: StarFish = new StarFish(this.x, this.y);
+        sf.draw();
+        animals.push(sf);
+        z++;
+        console.log("addedStarfish");
+    }
+
+    //information fish
+    function showInfoFisch(): void {
+        console.log("testFisch");
+        document.getElementById("infoFisch").style.display = "block";
+        addFish();
+    }
+
+    //add one fisch on random position
+    function addFish(): void {
+        let lf: LittleFish = new LittleFish(this.x, this.y);
+        lf.draw();
+        animals.push(lf);
+        z++;
+        console.log("addedFish");
+    }
+
+    //information parasite
+    function showInfoParasite(): void {
+        console.log("testParasite");
+        document.getElementById("infoParasite").style.display = "block";
+        addParasite();
+    }
+
+    //add new parasites on fixed position
+    function addParasite(): void {
+        let para: Parasite = new Parasite(100, 425);
+        parasites.push(para);
+        z++;
+        console.log("addedParasite");
+    }
+
 }

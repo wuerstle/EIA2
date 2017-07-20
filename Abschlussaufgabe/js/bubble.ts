@@ -15,7 +15,7 @@ namespace Abschlussaufgabe {
         radius: number;
         evil: boolean;
 
-        constructor(_x: number, _y: number, _color: string) {
+        constructor(_x: number, _y: number) {
             this.x = _x;
             this.y = _y;
             this.radius = Math.random() * (5 - 5) + 5;

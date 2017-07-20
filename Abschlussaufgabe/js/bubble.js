@@ -9,7 +9,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 var Abschlussaufgabe;
 (function (Abschlussaufgabe) {
     var Bubble = (function () {
-        function Bubble(_x, _y, _color) {
+        function Bubble(_x, _y) {
             this.x = _x;
             this.y = _y;
             this.radius = Math.random() * (5 - 5) + 5;
