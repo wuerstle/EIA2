@@ -13,13 +13,13 @@ namespace Abschlussaufgabe {
         x: number;
         y: number;
         radius: number;
-        evil: boolean;
+        b: boolean;
 
         constructor(_x: number, _y: number) {
             this.x = _x;
             this.y = _y;
             this.radius = Math.random() * (5 - 5) + 5;
-            this.evil = Math.round(Math.random()) == 1;
+            this.b = Math.round(Math.random()) == 1;
         }
 
         drawBubble(): void {
