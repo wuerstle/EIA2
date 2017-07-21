@@ -6,20 +6,14 @@ Datum: 20.07.2017
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
 var Abschlussaufgabe;
 (function (Abschlussaufgabe) {
-    var StarFish = (function (_super) {
-        __extends(StarFish, _super);
-        function StarFish(_x, _y) {
-            _super.call(this, _x, _y);
+    class StarFish extends Abschlussaufgabe.Animal {
+        constructor(_x, _y) {
+            super(_x, _y);
         }
         //draw method for starfish
-        StarFish.prototype.draw = function () {
+        draw() {
             Abschlussaufgabe.context.fillStyle = "orange";
             Abschlussaufgabe.context.strokeStyle = "white";
             Abschlussaufgabe.context.beginPath();
@@ -37,9 +31,8 @@ var Abschlussaufgabe;
             Abschlussaufgabe.context.closePath();
             Abschlussaufgabe.context.fill();
             Abschlussaufgabe.context.stroke();
-        };
-        return StarFish;
-    }(Abschlussaufgabe.Animal));
+        }
+    }
     Abschlussaufgabe.StarFish = StarFish;
 })(Abschlussaufgabe || (Abschlussaufgabe = {}));
 //# sourceMappingURL=starFish.js.map

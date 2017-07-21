@@ -10,36 +10,36 @@ var Abschlussaufgabe;
 (function (Abschlussaufgabe) {
     window.addEventListener("load", init);
     //variable um Hintergrund zu speichern
-    var imgData;
-    var click = 10;
-    var z = 0;
+    let imgData;
+    let click = 10;
+    let z = 0;
     //Bubbles Class
-    var bubbles = [];
+    let bubbles = [];
     //Animal Superclass with Subclasses for StarFish and LittleFish
     Abschlussaufgabe.animals = [];
     //Parasite Class
-    var parasites = [];
+    let parasites = [];
     function init() {
-        var x = 0;
-        var y = 0;
-        var canvas = document.getElementsByTagName("canvas")[0];
+        let x = 0;
+        let y = 0;
+        let canvas = document.getElementsByTagName("canvas")[0];
         Abschlussaufgabe.context = canvas.getContext("2d");
         //background canvas
         Abschlussaufgabe.context.fillStyle = "#00BFFF";
         Abschlussaufgabe.context.fillRect(0, 0, Abschlussaufgabe.context.canvas.width, Abschlussaufgabe.context.canvas.height);
         //loop for bubbles
-        for (var i = 0; i < 20; i++) {
+        for (let i = 0; i < 20; i++) {
             new Abschlussaufgabe.Bubble(Math.random() * canvas.width, Math.random() * canvas.height).drawBubble();
         }
         //loop for starfish
-        for (var i = 0; i < 10; i++) {
-            var sf = new Abschlussaufgabe.StarFish(x, y);
+        for (let i = 0; i < 10; i++) {
+            let sf = new Abschlussaufgabe.StarFish(x, y);
             sf.setRandomPosition();
             sf.draw();
         }
         //loop for fish
-        for (var i = 0; i < 10; i++) {
-            var lf = new Abschlussaufgabe.LittleFish(x, y);
+        for (let i = 0; i < 10; i++) {
+            let lf = new Abschlussaufgabe.LittleFish(x, y);
             lf.setRandomPosition();
             lf.draw();
         }
@@ -48,8 +48,8 @@ var Abschlussaufgabe;
         //250 bubbles on random positions
         createBubbles(250);
         //Loop for Parasites
-        for (var i = 0; i <= 50; i++) {
-            var p = new Abschlussaufgabe.Parasite(750, 225); //start
+        for (let i = 0; i <= 50; i++) {
+            let p = new Abschlussaufgabe.Parasite(750, 225); //start
             parasites.push(p);
         }
         //EventListener for bubbles
@@ -57,17 +57,17 @@ var Abschlussaufgabe;
         //Smartphone and Tablet
         canvas.addEventListener("touchstart", addBubble);
         //EventListener for starFish
-        var seeStern = document.getElementById("seestern");
+        let seeStern = document.getElementById("seestern");
         seeStern.addEventListener("click", showInfoSeestern);
         //Smartphone and Tablet
         seeStern.addEventListener("touchstart", showInfoSeestern);
         //EventListener for littleFish
-        var kleinerFisch = document.getElementById("kleinerfisch");
+        let kleinerFisch = document.getElementById("kleinerfisch");
         kleinerFisch.addEventListener("click", showInfoFisch);
         //Smartphone and Tablet
         kleinerFisch.addEventListener("touchstart", showInfoFisch);
         //EventListener for parasites
-        var parasite = document.getElementById("parasite");
+        let parasite = document.getElementById("parasite");
         parasite.addEventListener("click", showInfoParasite);
         //Smartphone and Tablet
         parasite.addEventListener("touchstart", showInfoParasite);
@@ -77,18 +77,18 @@ var Abschlussaufgabe;
     function animate() {
         Abschlussaufgabe.context.putImageData(imgData, 0, 0);
         //animation for bubbles
-        for (var i = 0; i < bubbles.length; i++) {
-            var b = bubbles[i];
+        for (let i = 0; i < bubbles.length; i++) {
+            let b = bubbles[i];
             b.updateBubble();
         }
         //animation for animals
-        for (var i = 0; i < Abschlussaufgabe.animals.length; i++) {
-            var a = Abschlussaufgabe.animals[i];
+        for (let i = 0; i < Abschlussaufgabe.animals.length; i++) {
+            let a = Abschlussaufgabe.animals[i];
             a.updateAnimal();
         }
         //animation for parasites
-        for (var i = 0; i < parasites.length; i++) {
-            var p = parasites[i];
+        for (let i = 0; i < parasites.length; i++) {
+            let p = parasites[i];
             p.updateParasite();
         }
         //Timeout
@@ -96,24 +96,24 @@ var Abschlussaufgabe;
     }
     //create bubbles
     function createBubbles(_amount) {
-        for (var i = 0; i < _amount; i++) {
-            var x = random(0, Abschlussaufgabe.context.canvas.width);
-            var y = random(0, Abschlussaufgabe.context.canvas.height);
+        for (let i = 0; i < _amount; i++) {
+            let x = random(0, Abschlussaufgabe.context.canvas.width);
+            let y = random(0, Abschlussaufgabe.context.canvas.height);
             createBubble(x, y);
         }
     }
     //add 10 bubbles 
     function addBubble(_event) {
-        for (var i = 0; i < click; i++) {
-            var x = random(_event.offsetX - 100, _event.offsetX + 100);
-            var y = random(_event.offsetY - 100, _event.offsetY + 100);
+        for (let i = 0; i < click; i++) {
+            let x = random(_event.offsetX - 100, _event.offsetX + 100);
+            let y = random(_event.offsetY - 100, _event.offsetY + 100);
             createBubble(x, y);
         }
         console.log("addedBubbles");
     }
     //create one bubble
     function createBubble(_x, _y) {
-        var bubble = new Abschlussaufgabe.Bubble(_x, _y);
+        let bubble = new Abschlussaufgabe.Bubble(_x, _y);
         bubbles.push(bubble);
     }
     //random position
@@ -128,7 +128,7 @@ var Abschlussaufgabe;
     }
     //add one starfish on random position
     function addStar() {
-        var sf = new Abschlussaufgabe.StarFish(this.x, this.y);
+        let sf = new Abschlussaufgabe.StarFish(this.x, this.y);
         sf.draw();
         Abschlussaufgabe.animals.push(sf);
         z++;
@@ -142,7 +142,7 @@ var Abschlussaufgabe;
     }
     //add one fisch on random position
     function addFish() {
-        var lf = new Abschlussaufgabe.LittleFish(this.x, this.y);
+        let lf = new Abschlussaufgabe.LittleFish(this.x, this.y);
         lf.draw();
         Abschlussaufgabe.animals.push(lf);
         z++;
@@ -156,7 +156,7 @@ var Abschlussaufgabe;
     }
     //add new parasites on fixed position
     function addParasite() {
-        var para = new Abschlussaufgabe.Parasite(100, 425);
+        let para = new Abschlussaufgabe.Parasite(100, 425);
         parasites.push(para);
         z++;
         console.log("addedParasite");

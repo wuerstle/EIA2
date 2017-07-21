@@ -6,21 +6,15 @@ Datum: 20.07.2017
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
 var Abschlussaufgabe;
 (function (Abschlussaufgabe) {
-    var LittleFish = (function (_super) {
-        __extends(LittleFish, _super);
-        function LittleFish(_x, _y) {
-            _super.call(this, _x, _y);
+    class LittleFish extends Abschlussaufgabe.Animal {
+        constructor(_x, _y) {
+            super(_x, _y);
             this.color = "hsl(" + Math.random() * 360 + ", 100%, 50%)"; //random Color
         }
         //draw method for littlefish
-        LittleFish.prototype.draw = function () {
+        draw() {
             Abschlussaufgabe.context.fillStyle = this.color;
             Abschlussaufgabe.context.strokeStyle = this.color;
             Abschlussaufgabe.context.beginPath();
@@ -40,9 +34,8 @@ var Abschlussaufgabe;
             Abschlussaufgabe.context.arc(this.x + 20, this.y + 20, 2, 0, 2 * Math.PI);
             Abschlussaufgabe.context.closePath();
             Abschlussaufgabe.context.fill();
-        };
-        return LittleFish;
-    }(Abschlussaufgabe.Animal));
+        }
+    }
     Abschlussaufgabe.LittleFish = LittleFish;
 })(Abschlussaufgabe || (Abschlussaufgabe = {}));
 //# sourceMappingURL=littleFish.js.map

@@ -8,16 +8,16 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 */
 var Abschlussaufgabe;
 (function (Abschlussaufgabe) {
-    var Parasite = (function () {
-        function Parasite(_x, _y) {
+    class Parasite {
+        constructor(_x, _y) {
             this.x = _x;
             this.y = _y;
         }
-        Parasite.prototype.updateParasite = function () {
+        updateParasite() {
             this.moveParasite();
             this.drawParasite();
-        };
-        Parasite.prototype.drawParasite = function () {
+        }
+        drawParasite() {
             Abschlussaufgabe.context.strokeStyle = "#6B8e23";
             Abschlussaufgabe.context.fillStyle = "#6B8e23";
             Abschlussaufgabe.context.beginPath();
@@ -25,8 +25,8 @@ var Abschlussaufgabe;
             Abschlussaufgabe.context.closePath();
             Abschlussaufgabe.context.fill();
             Abschlussaufgabe.context.stroke();
-        };
-        Parasite.prototype.moveParasite = function () {
+        }
+        moveParasite() {
             this.x += Math.random() * 4 - 2.1;
             this.y += Math.random() * 7 - 3.5;
             if (this.x < 0) {
@@ -38,9 +38,8 @@ var Abschlussaufgabe;
             if (this.y >= Abschlussaufgabe.context.canvas.height) {
                 this.y = 0;
             }
-        };
-        return Parasite;
-    }());
+        }
+    }
     Abschlussaufgabe.Parasite = Parasite;
 })(Abschlussaufgabe || (Abschlussaufgabe = {}));
 //# sourceMappingURL=parasite.js.map

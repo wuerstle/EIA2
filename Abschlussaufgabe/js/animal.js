@@ -8,24 +8,23 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 */
 var Abschlussaufgabe;
 (function (Abschlussaufgabe) {
-    var Animal = (function () {
+    class Animal {
         //constructor
-        function Animal(_x, _y) {
+        constructor(_x, _y) {
             this.setRandomPosition();
         }
-        Animal.prototype.updateAnimal = function () {
+        updateAnimal() {
             this.draw();
-        };
-        Animal.prototype.setRandomPosition = function () {
+        }
+        setRandomPosition() {
             this.x = (Math.random() * (Abschlussaufgabe.context.canvas.width - 100) + 30);
             this.y = (Math.random() * (Abschlussaufgabe.context.canvas.height - 150) + 80);
-        };
+        }
         //draw method
-        Animal.prototype.draw = function () {
+        draw() {
             //empty  
-        };
-        return Animal;
-    }());
+        }
+    }
     Abschlussaufgabe.Animal = Animal;
 })(Abschlussaufgabe || (Abschlussaufgabe = {}));
 //# sourceMappingURL=animal.js.map
